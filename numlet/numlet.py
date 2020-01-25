@@ -1,23 +1,36 @@
 class Numlet:
-    def __init__(self, x):
-        self.x = str(x)
-        self.largo = len(self.x)
+    regla = {
+        1: 'self.millon(self.x)',
+        2: 'self.billon(self.x)'
+    }
 
+    def __init__(self, x):
+        self.r='self.pnot(100)'
+        self.x = str(x)
+        self.largo = len(str(x))
+        self.resto = x % 6
+        self.tt = 'self.millon(self.x)'
     def __str__(self):
-        # if 1 <= self.largo <= 3:
-        #     doo = 'self.tres(self.x)'
-        # if 4 <= self.largo <= 6:
-        #     doo = 'self.seis(self.x)'
-        return self.tres(self.x)
+        if self.largo < 4:
+            return self.base(self.x)
+        elif self.largo < 7:
+            if len(self.x) == 4:
+                self.x = '00' + self.x
+            elif len(self.x) == 5:
+                self.x = '00' + self.x
+            return self.mil(self.x)
+        else:
+            #return eval(self.tt)
+            pass
 
     def unidades(self, x, un=False, trae=''):
-        if x == '0':
+        if x == '0' or x == '00' or x == '000':
             return 'Cero'
-        if x == '1' or x == '01' or x == '001':
-            if un == False:
-                return 'Uno'
-            else:
+        elif x == '1' or x == '01' or x == '001':
+            if un:
                 return 'Un'
+            else:
+                return 'Uno'
         elif x == '2' or x == '02' or x == '002':
             return 'Dos'
         elif x == '3' or x == '03' or x == '003':
@@ -61,45 +74,46 @@ class Numlet:
         elif x == '20' or x =='020':
             return 'Veinte'
         elif x == '21' or x =='021':
-            if un == True:
-                return 'veintiún'
-            return 'Veintiuno'
-        elif x == '22' or x =='022':
+            if un:
+                return 'Veintiún'
+            else:
+                return 'Veintiuno'
+        elif x == '22' or x == '022':
             return 'Veintidós'
-        elif x == '23' or x =='023':
+        elif x == '23' or x == '023':
             return 'Veintitrés'
-        elif x == '24' or x =='024':
+        elif x == '24' or x == '024':
             return 'Veinticuatro'
-        elif x == '25' or x =='025':
+        elif x == '25' or x == '025':
             return 'Veinticinco'
-        elif x == '26' or x =='026':
+        elif x == '26' or x == '026':
             return 'Veinteséis'
-        elif x == '27' or x =='027':
+        elif x == '27' or x == '027':
             return 'Veintisiete'
-        elif x == '28' or x =='028':
+        elif x == '28' or x == '028':
             return 'Veintiocho'
-        elif x == '29' or x =='029':
+        elif x == '29' or x == '029':
             return 'Veintinueve'
-        elif x == '30' or x =='030':
+        elif x == '30' or x == '030':
             return 'Treinta'
-        elif x == '40' or x =='040':
+        elif x == '40' or x == '040':
             return 'Cuarenta'
-        elif x == '50' or x =='050':
+        elif x == '50' or x == '050':
             return 'Cincuenta'
-        elif x == '60' or x =='060':
+        elif x == '60' or x == '060':
             return 'Sesenta'
-        elif x == '70' or x =='070':
+        elif x == '70' or x == '070':
             return 'Setenta'
-        elif x == '80' or x =='080':
+        elif x == '80' or x == '080':
             return 'Ochenta'
-        elif x == '90' or x =='090':
+        elif x == '90' or x == '090':
             return 'Noventa'
         else:
             return self.unidades(x)
 
     def centenas(self, x, ciento=False):
         if x == '100':
-            if ciento == True:
+            if ciento:
                 return 'Ciento'
             else:
                 return 'Cien'
@@ -122,35 +136,79 @@ class Numlet:
         else:
             return self.decenas(x[1:])
 
-    def tres(self, x, trae=False):
-        if len(x)==1:
+    def base(self, x, un=False):
+        if len(x) == 1:
             return self.unidades(x)
-        elif len(x)==2:
-            if x[-1]=='0':
+        elif len(x) == 2:
+            if x[-1] == '0':
                 return self.decenas(x)
-            elif x[0]=='0':
+            elif x[0] == '0':
                 return self.unidades(x[0])
-            elif int(x) in list(range(10,30))+list(range(30,100,10)):
-                return self.decenas(x)
+            elif int(x) in list(range(10, 30))+list(range(30, 100, 10)):
+                if un:
+                    return self.decenas(x, un=True)
+                else:
+                    return self.decenas(x)
             else:
-                return '{} y {}'.format(self.decenas(x[0]+'0'),self.unidades(x[-1]))
-        elif len(x)==3:
-            if x[1:]=='00':
+                return '{} y {}'.format(self.decenas(x[0]+'0'), self.unidades(x[-1]))
+        elif len(x) == 3:
+            if x[0:2] == '00':
+                return self.unidades(x)
+            if x[0] == '0':
+                if int(x[1:]) in list(range(10, 30))+list(range(30, 100, 10)):
+                    if un:
+                        return self.decenas(x, un=True)
+                    else:
+                        return self.decenas(x)
+                else:
+                    if un:
+                        return '{} y {}'.format(self.decenas(x[1]+'0', un=True), self.unidades(x[-1]))
+                    else:
+                        return '{} y {}'.format(self.decenas(x[1]+'0'), self.unidades(x[-1]))
+            if x[1:] == '00':
                 return self.centenas(x)
-            elif x[1]=='0' and x[-1]!='0':
-                return '{} {}'.format(self.centenas(x[0]+'00',ciento=True),
+            elif x[0] != 0 and x[1] == '0' and x[-1] != '0':
+                return '{} {}'.format(self.centenas(x[0]+'00', ciento=True),
                                       self.unidades(x[-1]))
-            elif int(x[1:]) in list(range(10,30))+list(range(30,100,10)):
-                return '{} {}'.format(self.centenas(x[0]+'00',ciento=True),
-                                      self.decenas(x[1:]))
+            elif int(x[1:]) in list(range(10, 30))+list(range(30, 100, 10)):
+                if un:
+                    return '{} {}'.format(self.centenas(x[0] + '00', ciento=True),
+                                          self.decenas(x[1:], un=True))
+                else:
+                    return '{} {}'.format(self.centenas(x[0]+'00', ciento=True),
+                                          self.decenas(x[1:]))
             else:
-                return '{} {} y {}'.format(self.centenas(x[0]+'00',ciento=True),
+                return '{} {} y {}'.format(self.centenas(x[0]+'00', ciento=True),
                                            self.decenas(x[1]+'0'),
                                            self.unidades(x[-1]))
-
-
         else:
             return 'error'
-for i in range(1000):
-    print(i, Numlet(i))
-# print(Numlet(11))
+
+    def mil(self, x):
+        y = 'Mil'
+        if len(str(int(x))) % 3 == 0:
+            if x[3:6] == '000':
+                return '{} {}'.format(self.base(x[:3]), y)
+            else:
+                if x[:3] == '21':
+                    return '{} {} {}'.format(self.base(x[:3], un=True), y, self.base(x[3:6]))
+                else:
+                    return '{} {} {}'.format(self.base(x[:3]), y, self.base(x[3:6]))
+        else:
+            if x[3:6] == '000':
+                if int(x[1:6]) == 1000:
+                    return y
+                else:
+                    return '{} {}'.format(self.base(x[1:3], un=True), y)
+            else:
+                return '{} {} {}'.format(self.base(x[:3], un=True), y, self.base(x[3:6], un=True))
+
+    def millon(self, x):
+        y= 'Millones'
+        if self.resto == 0:
+            return '{} {}'.format(self.mil(x[:3]), y)
+        else:
+            'error'
+
+
+print(Numlet(1239))
