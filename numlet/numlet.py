@@ -14,23 +14,18 @@ class Numlet:
         if self.largo < 4:
             return self.base(self.x)
         elif self.largo < 7:
-            if len(self.x) == 4:
-                self.x = '00' + self.x
-            elif len(self.x) == 5:
-                self.x = '00' + self.x
-            return self.mil(self.x)
+            return self.mil((5*'0'+self.x)[-6:])
         else:
-            #return eval(self.tt)
             pass
 
-    def unidades(self, x, un=False, trae=''):
+    def unidades(self, x, un=False, uno=True):
         if x == '0' or x == '00' or x == '000':
             return 'Cero'
         elif x == '1' or x == '01' or x == '001':
-            if un:
-                return 'Un'
-            else:
+            if uno:
                 return 'Uno'
+            else:
+                return 'Un'
         elif x == '2' or x == '02' or x == '002':
             return 'Dos'
         elif x == '3' or x == '03' or x == '003':
@@ -50,7 +45,7 @@ class Numlet:
         else:
             return 'error'
 
-    def decenas(self, x, un=False, trae=''):
+    def decenas(self, x, un=False):
         if x == '10' or x == '010':
             return 'Diez'
         elif x == '11' or x == '011':
@@ -63,17 +58,17 @@ class Numlet:
             return 'Catorce'
         elif x == '15' or x == '015':
             return 'Quince'
-        elif x == '16' or x =='016':
+        elif x == '16' or x == '016':
             return 'Dieciséis'
-        elif x == '17' or x =='017':
+        elif x == '17' or x == '017':
             return 'Diecisiete'
-        elif x == '18' or x =='018':
+        elif x == '18' or x == '018':
             return 'Dieciocho'
-        elif x == '19' or x =='019':
+        elif x == '19' or x == '019':
             return 'Diecinueve'
-        elif x == '20' or x =='020':
+        elif x == '20' or x == '020':
             return 'Veinte'
-        elif x == '21' or x =='021':
+        elif x == '21' or x == '021':
             if un:
                 return 'Veintiún'
             else:
@@ -136,7 +131,7 @@ class Numlet:
         else:
             return self.decenas(x[1:])
 
-    def base(self, x, un=False):
+    def base(self, x, un=False, uno=True):
         if len(x) == 1:
             return self.unidades(x)
         elif len(x) == 2:
@@ -168,8 +163,12 @@ class Numlet:
             if x[1:] == '00':
                 return self.centenas(x)
             elif x[0] != 0 and x[1] == '0' and x[-1] != '0':
-                return '{} {}'.format(self.centenas(x[0]+'00', ciento=True),
-                                      self.unidades(x[-1]))
+                if uno:
+                    return '{} {}'.format(self.centenas(x[0]+'00', ciento=True),
+                                          self.unidades(x[-1]))
+                else:
+                    return '{} {}'.format(self.centenas(x[0] + '00', ciento=True),
+                                          self.unidades(x[-1], uno=False))
             elif int(x[1:]) in list(range(10, 30))+list(range(30, 100, 10)):
                 if un:
                     return '{} {}'.format(self.centenas(x[0] + '00', ciento=True),
@@ -186,22 +185,33 @@ class Numlet:
 
     def mil(self, x):
         y = 'Mil'
-        if len(str(int(x))) % 3 == 0:
+        if len(str(int(x))) == 4:
             if x[3:6] == '000':
-                return '{} {}'.format(self.base(x[:3]), y)
-            else:
-                if x[:3] == '21':
-                    return '{} {} {}'.format(self.base(x[:3], un=True), y, self.base(x[3:6]))
-                else:
-                    return '{} {} {}'.format(self.base(x[:3]), y, self.base(x[3:6]))
-        else:
-            if x[3:6] == '000':
-                if int(x[1:6]) == 1000:
+                if x[2] == 1:
                     return y
                 else:
-                    return '{} {}'.format(self.base(x[1:3], un=True), y)
+                    return f'{self.base(x[2])} {y}'
             else:
-                return '{} {} {}'.format(self.base(x[:3], un=True), y, self.base(x[3:6], un=True))
+                if x[2] == '1':
+                    return f'{y} {self.base(x[3:6])}'
+                else:
+                    return '{} {} {}'.format(self.base(x[2]), y, self.base(x[3:6]))
+        elif len(str(int(x))) == 5:
+            if x[3:6] == '000':
+                return f'{self.base(x[:3])} {y}'
+            else:
+                return '{} {} {}'.format(self.base(x[1:3]), y, self.base(x[3:6]))
+        else:
+            if x[1:3] == '01':
+                if x[3:6] == '000':
+                    return f'{self.base(x[:3], uno=False)} {y}'
+                else:
+                    return '{} {} {}'.format(self.base(x[:3], uno=False), y, self.base(x[3:6]))
+            else:
+                if x[3:6] == '000':
+                    return '{} {}'.format(self.base(x[:3], un=True), y)
+                else:
+                    return '{} {} {}'.format(self.base(x[:3], un=True), y, self.base(x[3:6], un=True))
 
     def millon(self, x):
         y= 'Millones'
@@ -210,5 +220,6 @@ class Numlet:
         else:
             'error'
 
-
-print(Numlet(1239))
+# for i in range(900000, 1000000):
+#     print(i, Numlet(i))
+print(Numlet(101101))
