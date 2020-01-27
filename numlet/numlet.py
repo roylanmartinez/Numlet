@@ -1,4 +1,5 @@
 def largo_1(x, uno=True):
+    uno = 0 if uno else -1
     unidades1 = {
         '0': [' Cero', ],
         '1': [' Uno', ' Un'],
@@ -11,14 +12,10 @@ def largo_1(x, uno=True):
         '8': [' Ocho', ],
         '9': [' Nueve', ]
     }
-    if uno:
-        return unidades1[x][0]
-    else:
-        return unidades1[x][-1]
+    return unidades1[x][uno]
 
 
 def largo_2(x, veintiuno=True, uno=True):
-    uno_1 = uno
     veintiuno_1 = 0 if veintiuno else -1
     decenas1 = {
         '00': ['', ],
@@ -51,16 +48,14 @@ def largo_2(x, veintiuno=True, uno=True):
         '90': [' Noventa', ]
     }
     if len(str(int(x))) == 1:
-        return largo_1(x[-1], uno=uno_1)
+        return largo_1(x[-1], uno)
     elif int(x) in list(range(10, 30)) + list(range(30, 100, 10)):
         return decenas1[x][veintiuno_1]
     else:
-        return decenas1[x[0]+'0'][veintiuno_1] + largo_1(x[1])
+        return decenas1[x[0]+'0'][veintiuno_1] + largo_1(x[1], uno)
 
 
 def largo_3(x, veintiuno=True, uno=True):
-    uno_1 = uno
-    veintiuno_1 = veintiuno
     centenas1 = {
         '000': ['', ],
         '100': [' Cien', ' Ciento'],
@@ -74,21 +69,21 @@ def largo_3(x, veintiuno=True, uno=True):
         '900': [' Novecientos', ]
     }
     if len(str(int(x))) <= 2 and x != '000':
-        return largo_2(x[0:2], uno=uno_1)
+        return largo_2(x[1:3], uno)
     else:
         if x == '000':
             return centenas1[x][0]
         elif int(x) in range(100, 901, 100):
             return centenas1[x][0]
         else:
-            return centenas1[x[0] + '00'][-1] + largo_2(x[1:3], veintiuno=veintiuno_1, uno=uno_1)
+            return centenas1[x[0] + '00'][-1] + largo_2(x[1:3], veintiuno, uno)
 
 
 def largo_6(x):
     y = ' Mil'
     if len(str(int(x[0:3]))) == 1 and x[0:3] != '000':
         if x[2] == '1':
-            return y
+            return y + largo_3(x[3:6])
         else:
             return largo_1(x[2]) + y + largo_3(x[3:6])
     elif len(str(int(x[0:3]))) == 2:
@@ -96,10 +91,15 @@ def largo_6(x):
     elif len(str(int(x[0:3]))) == 3:
         return largo_3(x[0:3], veintiuno=False, uno=False) + y + largo_3(x[3:6])
     else:
-        pass
+        return largo_3(x[3:6])
+for i in range(100000, 1000000):
+    largo_6(str(i))
 
-
-# for i in range(1, 1000):
-#     print(i, largo_3(str(i)))
+# for i in range(1, 1000000):
+#     print(i, largo_6(str('00000' + str(i))[-6:]))
 # print('Novecientos Noventa y Ocho')
-print(largo_6('121121'))
+# print(largo_6('000001'))
+# for i in range(1, 1000000):
+#     largo_6(str('00000' + str(i))[-6:])
+#d81b3c6f5be4568572aa8db540b33dfb9f9f0e74
+#test
