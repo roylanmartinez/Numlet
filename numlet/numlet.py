@@ -1,4 +1,4 @@
-def largo_1(x, uno=True, unn=True):
+def lrg1(x, uno=True, unn=True):
     if x == '1':
         return ' Uno' if uno else ' Un'
     elif x == '2':
@@ -19,7 +19,7 @@ def largo_1(x, uno=True, unn=True):
         return ' Nueve'
 
 
-def largo_2(x, veintiuno=True, uno=True, unn=True):
+def lrg2(x, inti=True, uno=True, unn=True):
     if x[1] == '0':
         if x == '10':
             return ' Diez'
@@ -60,7 +60,7 @@ def largo_2(x, veintiuno=True, uno=True, unn=True):
             return ' Diecinueve'
     elif x[0] == '2':
         if x == '21':
-            return ' Veintiuno' if veintiuno else ' Veintiún'
+            return ' Veintiuno' if inti else ' Veintiún'
         elif x == '22':
             return ' Veintidós'
         elif x == '23':
@@ -79,127 +79,87 @@ def largo_2(x, veintiuno=True, uno=True, unn=True):
             return ' Veintinueve'
     else:
         if x[0] == '3':
-            return ' Treinta y' + largo_1(x[1], uno)
+            return ' Treinta y' + lrg1(x[1], uno)
         elif x[0] == '4':
-            return ' Cuarenta y' + largo_1(x[1], uno)
+            return ' Cuarenta y' + lrg1(x[1], uno)
         elif x[0] == '5':
-            return ' Cincuenta y' + largo_1(x[1], uno)
+            return ' Cincuenta y' + lrg1(x[1], uno)
         elif x[0] == '6':
-            return ' Sesenta y' + largo_1(x[1], uno)
+            return ' Sesenta y' + lrg1(x[1], uno)
         elif x[0] == '7':
-            return ' Setenta y' + largo_1(x[1], uno)
+            return ' Setenta y' + lrg1(x[1], uno)
         elif x[0] == '8':
-            return ' Ochenta y' + largo_1(x[1], uno)
+            return ' Ochenta y' + lrg1(x[1], uno)
         else:
-            return ' Noventa y' + largo_1(x[1], uno)
+            return ' Noventa y' + lrg1(x[1], uno)
 
 
-def largo_3(x, veintiuno=True, uno=True, unn=True):
-    if x[0] == '0':
-        if x == '000':
+def lrg3(x, veintiuno=True, uno=True, unn=True):
+    if x[1] == '0':
+        if x[1:3] == '00':
+            if x == '100':
+                return ' Cien'
+            elif x == '200':
+                return ' Doscientos'
+            elif x == '300':
+                return ' Trescientos'
+            elif x == '400':
+                return ' Cuatrocientos'
+            elif x == '500':
+                return ' Quinientos'
+            elif x == '600':
+                return ' Seiscientos'
+            elif x == '700':
+                return ' Setecientos'
+            elif x == '800':
+                return ' Ochocientos'
+            else:
+                return ' Novecientos'
+
+
+def lrg6(x, unn=True):
+    if x[0:3] == '000':
+        if x[3:6] == '000':
             return ''
-        elif x[1:3] == '00':
-            # 0 0 N
-            return largo_1(x[1:3], uno, unn)
+        elif x[3:5] == '00':
+            return lrg1([5])
+        elif x[4] == '0':
+            pass
         else:
-            # 0 N N
-            return largo_2(x[1:3], veintiuno, uno, unn)
+            pass
+    elif x[0:2] == '00':
+        if x[3:6] == '000':
+            pass
+        elif x[3:5] == '00':
+            pass
+        elif x[4] == '0':
+            pass
+        else:
+            pass
+    elif x[1] == '0':
+        if x[3:6] == '000':
+            pass
+        elif x[3:5] == '00':
+            pass
+        elif x[4] == '0':
+            pass
+        else:
+            pass
     else:
-        if x[1] == '0':
-            if x[1:3] == '00':
-                # N 0 0
-                if x == '100':
-                    return ' Cien'
-                elif x == '200':
-                    return ' Doscientos'
-                elif x == '300':
-                    return ' Trescientos'
-                elif x == '400':
-                    return ' Cuatrocientos'
-                elif x == '500':
-                    return ' Quinientos'
-                elif x == '600':
-                    return ' Seiscientos'
-                elif x == '700':
-                    return ' Setecientos'
-                elif x == '800':
-                    return ' Ochocientos'
-                else:
-                    return ' Novecientos'
-            else:
-                # N 0 N
-                if x[0] == '1':
-                    return ' Ciento' + largo_1(x[2], uno, unn)
-                elif x[0] == '0':
-                    return ' Doscientos' + largo_1(x[2], uno, unn)
-                elif x[0] == '3':
-                    return ' Trescientos' + largo_1(x[2], uno, unn)
-                elif x[0] == '4':
-                    return ' Cuatrocientos' + largo_1(x[2], uno, unn)
-                elif x[0] == '5':
-                    return ' Quinientos' + largo_1(x[2], uno, unn)
-                elif x[0] == '6':
-                    return ' Seiscientos' + largo_1(x[2], uno, unn)
-                elif x[0] == '7':
-                    return ' Setecientos' + largo_1(x[2], uno, unn)
-                elif x[0] == '8':
-                    return ' Ochocientos' + largo_1(x[2], uno, unn)
-                else:
-                    return ' Novecientos' + largo_1(x[2], uno, unn)
+        if x[3:6] == '000':
+            pass
+        elif x[3:5] == '00':
+            pass
+        elif x[4] == '0':
+            pass
         else:
-            # N N N
-            if x[0] == '1':
-                return ' Ciento' + largo_2(x[1:3], veintiuno, uno, unn)
-            elif x[0] == '2':
-                return ' Doscientos' + largo_2(x[1:3], veintiuno, uno, unn)
-            elif x[0] == '3':
-                return ' Trescientos' + largo_2(x[1:3], veintiuno, uno, unn)
-            elif x[0] == '4':
-                return ' Cuatrocientos' + largo_2(x[1:3], veintiuno, uno, unn)
-            elif x[0] == '5':
-                return ' Quinientos' + largo_2(x[1:3], veintiuno, uno, unn)
-            elif x[0] == '6':
-                return ' Seiscientos' + largo_2(x[1:3], veintiuno, uno, unn)
-            elif x[0] == '7':
-                return ' Setecientos' + largo_2(x[1:3], veintiuno, uno, unn)
-            elif x[0] == '8':
-                return ' Ochocientos' + largo_2(x[1:3], veintiuno, uno, unn)
-            else:
-                return ' Novecientos' + largo_2(x[1:3], veintiuno, uno, unn)
+            pass
 
-
-def largo_6(x, unn=True):
-    y = ' Mil'
-    if x[0:3] != '000':
-        return largo_3(x[3:6])
-    elif len(str(int(x[0:3]))) == 1:
-        if x[2] == '1':
-            return y + largo_3(x[3:6])
-        else:
-            return largo_1(x[2]) + y + largo_3(x[3:6])
-    elif len(str(int(x[0:3]))) == 2:
-        return largo_2(x[1:3], veintiuno=False, uno=False) + y + largo_3(x[3:6])
-    else:
-        return largo_3(x[0:3], veintiuno=False, uno=False) + y + largo_3(x[3:6])
-
-    # elif x[0:2] == '00':
-    #     if x[2] == '1':
-    #         return ' Mil' + largo_3(x[3:6], unn)
-    #     else:
-    #         return largo_1(x[2]) + ' Mil' + largo_3(x[3:6], unn)
-    # elif x[0] == '0':
-    #     return largo_2(x[1:3], veintiuno=False, uno=False) + ' Mil' + largo_3(x[3:6], unn)
-    # else:
-    #     return largo_3(x[0:3], veintiuno=False, uno=False) + ' Mil' + largo_3(x[3:6], unn)
-
-
-# for i in range(1000, 1231):
-#     largo_6(str(i))
 
 # for i in range(1, 1000000):
 #     print(i, largo_6(str('00000' + str(i))[-6:]))
 # print('Novecientos Noventa y Ocho')
-print(largo_6('101101'))
+print(lrg3('123'))
 # for i in range(1, 1000000):
 #     largo_6(str('00000' + str(i))[-6:])
 #d81b3c6f5be4568572aa8db540b33dfb9f9f0e74
