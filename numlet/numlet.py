@@ -79,88 +79,88 @@ def lrg2(x, inti=True, uno=True, unn=True):
             return ' Veintinueve'
     else:
         if x[0] == '3':
-            return ' Treinta y' + lrg1(x[1], uno)
+            return ' Treinta y' + lrg1(x[1])
         elif x[0] == '4':
-            return ' Cuarenta y' + lrg1(x[1], uno)
+            return ' Cuarenta y' + lrg1(x[1])
         elif x[0] == '5':
-            return ' Cincuenta y' + lrg1(x[1], uno)
+            return ' Cincuenta ' + lrg1(x[1])
         elif x[0] == '6':
-            return ' Sesenta y' + lrg1(x[1], uno)
+            return ' Sesenta y' + lrg1(x[1])
         elif x[0] == '7':
-            return ' Setenta y' + lrg1(x[1], uno)
+            return ' Setenta y' + lrg1(x[1])
         elif x[0] == '8':
-            return ' Ochenta y' + lrg1(x[1], uno)
+            return ' Ochenta y' + lrg1(x[1])
         else:
-            return ' Noventa y' + lrg1(x[1], uno)
+            return ' Noventa y' + lrg1(x[1])
 
 
-def lrg3(x, veintiuno=True, uno=True, unn=True):
-    if x[1] == '0':
-        if x[1:3] == '00':
-            if x == '100':
-                return ' Cien'
-            elif x == '200':
-                return ' Doscientos'
-            elif x == '300':
-                return ' Trescientos'
-            elif x == '400':
-                return ' Cuatrocientos'
-            elif x == '500':
-                return ' Quinientos'
-            elif x == '600':
-                return ' Seiscientos'
-            elif x == '700':
-                return ' Setecientos'
-            elif x == '800':
-                return ' Ochocientos'
-            else:
-                return ' Novecientos'
-
-
-def lrg6(x, unn=True):
-    if x[0:3] == '000':
-        if x[3:6] == '000':
-            return ''
-        elif x[3:5] == '00':
-            return lrg1([5])
-        elif x[4] == '0':
-            pass
-        else:
-            pass
-    elif x[0:2] == '00':
-        if x[3:6] == '000':
-            pass
-        elif x[3:5] == '00':
-            pass
-        elif x[4] == '0':
-            pass
-        else:
-            pass
-    elif x[1] == '0':
-        if x[3:6] == '000':
-            pass
-        elif x[3:5] == '00':
-            pass
-        elif x[4] == '0':
-            pass
-        else:
-            pass
+def lrg3(x, inti=True, uno=True, ciento=True, unn=True):
+    if x == '1':
+        return ' Ciento' if ciento else ' Cien'
+    elif x == '2':
+        return ' Doscientos'
+    elif x == '3':
+        return ' Trescientos'
+    elif x == '4':
+        return ' Cuatrocientos'
+    elif x == '5':
+        return ' Quinientos'
+    elif x == '6':
+        return ' Seiscientos'
+    elif x == '7':
+        return ' Setecientos'
+    elif x == '8':
+        return ' Ochocientos'
     else:
-        if x[3:6] == '000':
-            pass
-        elif x[3:5] == '00':
-            pass
-        elif x[4] == '0':
-            pass
-        else:
-            pass
+        return ' Novecientos'
 
+
+def lrg6(xx):
+    def lrg(x, inti=True, uno=True, ciento=True, unn=True):
+        if x[0] != '0':
+            # verde
+            if x[1] != '0':
+                # verde verde
+                if x[2] != '0':
+                    # verde verde verde
+                    return lrg3(x[0], uno, ciento) + lrg2(x[1:3], inti, uno)
+                else:
+                    # verde verde roja
+                    return lrg3(x[0], uno, ciento) + lrg2(x[1:3])
+            else:
+                # verde roja
+                if x[2] != '0':
+                    # verde roja verde
+                    return lrg3(x[0], uno, ciento) + lrg1(x[2], uno)
+                else:
+                    # verde roja roja
+                    return lrg3(x[0], ciento)
+        else:
+            # roja
+            if x[1] != '0':
+                # roja verde
+                if x[2] != '0':
+                    # roja verde verde
+                    return lrg2(x[1:3], inti, uno)
+                else:
+                    # roja verde roja
+                    return lrg2(x[1:3])
+            else:
+                # roja roja
+                if x[2] != '0':
+                    # roja roja verde
+                    return lrg1(x[2], uno)
+                else:
+                    # roja roja roja
+                    return ''
+
+    return lrg(xx[0:3], uno=False, ciento=False) + ' Mil' + lrg(xx[3:6], inti=False, ciento=False)
 
 # for i in range(1, 1000000):
 #     print(i, largo_6(str('00000' + str(i))[-6:]))
 # print('Novecientos Noventa y Ocho')
-print(lrg3('123'))
-# for i in range(1, 1000000):
-#     largo_6(str('00000' + str(i))[-6:])
-#d81b3c6f5be4568572aa8db540b33dfb9f9f0e74
-#asdas123123
+# print(lrg6('101101'))
+for i in range(100000, 100100):
+    print(lrg6(str(i)))
+# d81b3c6f5be4568572aa8db540b33dfb9f9f0e74
+# asdas123123
