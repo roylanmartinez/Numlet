@@ -219,8 +219,3 @@ class Numlet:
             return '{} {}'.format(self.mil(x[:3]), y)
         else:
             'error'
-
-# for i in range(900000, 1000000):
-#     print(i, Numlet(i))
-print(Numlet(101101))
-'kjkjhkjh'
