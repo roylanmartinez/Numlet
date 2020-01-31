@@ -1,7 +1,6 @@
-# IZQUIERDA DEL MIL
-def n(x):
+def ni(x, bef=True):
     if x == '1':
-        return ' Un'
+        return ' Uno' if bef else ' Un'
     elif x == '2':
         return ' Dos'
     elif x == '3':
@@ -16,11 +15,13 @@ def n(x):
         return ' Siete'
     elif x == '8':
         return ' Ocho'
-    else:
+    elif x == '9':
         return ' Nueve'
+    else:
+        return ''
 
 
-def nn(x):
+def nni(x, bef=True):
     if x[0] == '1':
         if x == '10':
             return ' Diez'
@@ -46,9 +47,9 @@ def nn(x):
     elif x[0] == '2':
         # dos
         if x == '20':
-            return ' Veintiún'
+            return ' Veinte'
         elif x == '21':
-            return ' Veintiuno'
+            return ' Veintiuno' if bef else ' Veintiún'
         elif x == '22':
             return ' Veintidós'
         elif x == '23':
@@ -67,171 +68,64 @@ def nn(x):
             # 29
             return ' Veintinueve'
     elif x[0] == '3':
-        return ''.join([' Treinta', '' if x[1] == 0 else ' y{}'.format(n(x[1]))])
+        return ''.join([' Treinta', '' if x[1] == 0 else ' y{}'.format(ni(x[1], bef))])
     elif x[0] == '4':
-        return ''.join([' Cuarenta', '' if x[1] == 0 else ' y{}'.format(n(x[1]))])
+        return ''.join([' Cuarenta', '' if x[1] == 0 else ' y{}'.format(ni(x[1], bef))])
     elif x[0] == '5':
-        return ''.join([' Cincuenta', '' if x[1] == 0 else ' y{}'.format(n(x[1]))])
+        return ''.join([' Cincuenta', '' if x[1] == 0 else ' y{}'.format(ni(x[1], bef))])
     elif x[0] == '6':
-        return ''.join([' Sesenta', '' if x[1] == 0 else ' y{}'.format(n(x[1]))])
+        return ''.join([' Sesenta', '' if x[1] == 0 else ' y{}'.format(ni(x[1], bef))])
     elif x[0] == '7':
-        return ''.join([' Setenta', '' if x[1] == 0 else ' y{}'.format(n(x[1]))])
+        return ''.join([' Setenta', '' if x[1] == 0 else ' y{}'.format(ni(x[1], bef))])
     elif x[0] == '8':
-        return ''.join([' Ochenta', '' if x[1] == 0 else ' y{}'.format(n(x[1]))])
+        return ''.join([' Ochenta', '' if x[1] == 0 else ' y{}'.format(ni(x[1], bef))])
     elif x[0] == '9':
-        return ''.join([' Noventa', '' if x[1] == 0 else ' y{}'.format(n(x[1]))])
+        return ''.join([' Noventa', '' if x[1] == 0 else ' y{}'.format(ni(x[1], bef))])
     else:
-        if int(x) == 0:
-            ''
-        return n(x[1])
+        return ni(x[1], bef)
 
 
-def nnn(x):
+def nnni(x, bef=True):
     if x[0] == '1':
         if x[1:3] == '00':
             return ' Cien'
         else:
-            return ''.join([' Ciento', nn(x[1:3])])
+            return ''.join([' Ciento', nni(x[1:3], bef)])
     elif x[0] == '2':
-        return ''.join([' Doscientos', '' if x[0] == '0' else nn(x[1:3])])
+        return ''.join([' Doscientos', '' if x[1:3] == '00' else nni(x[1:3], bef)])
     elif x[0] == '3':
-        return ''.join([' Trescientos', '' if x[0] == '0' else nn(x[1:3])])
+        return ''.join([' Trescientos', '' if x[1:3] == '00' else nni(x[1:3], bef)])
     elif x[0] == '4':
-        return ''.join([' Cuatrocientos', '' if x[0] == '0' else nn(x[1:3])])
+        return ''.join([' Cuatrocientos', '' if x[1:3] == '00' else nni(x[1:3], bef)])
     elif x[0] == '5':
-        return ''.join([' Quinientos', '' if x[0] == '0' else nn(x[1:3])])
+        return ''.join([' Quinientos', '' if x[1:3] == '00' else nni(x[1:3], bef)])
     elif x[0] == '6':
-        return ''.join([' Seiscientos', '' if x[0] == '0' else nn(x[1:3])])
+        return ''.join([' Seiscientos', '' if x[1:3] == '00' else nni(x[1:3], bef)])
     elif x[0] == '7':
-        return ''.join([' Setecientos', '' if x[0] == '0' else nn(x[1:3])])
+        return ''.join([' Setecientos', '' if x[1:3] == '00' else nni(x[1:3], bef)])
     elif x[0] == '8':
-        return ''.join([' Ochocientos', '' if x[0] == '0' else nn(x[1:3])])
+        return ''.join([' Ochocientos', '' if x[1:3] == '00' else nni(x[1:3], bef)])
     elif x[0] == '9':
-        return ''.join([' Novecientos', '' if x[0] == '0' else nn(x[1:3])])
+        return ''.join([' Novecientos', '' if x[1:3] == '00' else nni(x[1:3], bef)])
     else:
         # 0 N N
-        return nn(x[1:3])
+        return nni(x[1:3], bef)
 
 
-# DERECHA DEL MIL
-def ni(x):
-    if x == '1':
-        return ' Mil Uno'
-    elif x == '2':
-        return ' Mil Dos'
-    elif x == '3':
-        return ' Mil Tres'
-    elif x == '4':
-        return ' Mil Cuatro'
-    elif x == '5':
-        return ' Mil Cinco'
-    elif x == '6':
-        return ' Mil Seis'
-    elif x == '7':
-        return ' Mil Siete'
-    elif x == '8':
-        return ' Mil Ocho'
+def nnn6(x, bef=True):
+    if x == '000000':
+        return ''
+    elif x[0:3] == '001':
+        return ''.join([' Mil', nnni(x[3:6], bef)])
+    elif x[0:3] == '000':
+        return nnni(x[3:6], bef)
     else:
-        return ' Mil Nueve'
+        return ''.join([nnni(x[0:3], bef=False), ' Mil', nnni(x[3:6], bef)])
 
 
-def nni(x):
-    if x[0] == '1':
-        if x == '10':
-            return ' Mil Diez'
-        elif x == '11':
-            return ' Mil Once'
-        elif x == '12':
-            return ' Mil Doce'
-        elif x == '13':
-            return ' Mil Trece'
-        elif x == '14':
-            return ' Mil Catorce'
-        elif x == '15':
-            return ' Mil Quince'
-        elif x == '16':
-            return ' Mil Dieciséis'
-        elif x == '17':
-            return ' Mil Diecisiete'
-        elif x == '18':
-            return ' Mil Dieciocho'
-        else:
-            # 19
-            return ' Mil Diecinueve'
-    elif x[0] == '2':
-        # dos
-        if x == '20':
-            return ' Mil Veinte'
-        elif x == '21':
-            return ' Mil Veintiuno'
-        elif x == '22':
-            return ' Mil Veintidós'
-        elif x == '23':
-            return ' Mil Veintitrés'
-        elif x == '24':
-            return ' Mil Veinticuatro'
-        elif x == '25':
-            return ' Mil Veinticinco'
-        elif x == '26':
-            return ' Mil Veinteséis'
-        elif x == '27':
-            return ' Mil Veintisiete'
-        elif x == '28':
-            return ' Mil Veintiocho'
-        else:
-            # 29
-            return ' Mil Veintinueve'
-    elif x[0] == '3':
-        return ''.join([' Mil Treinta', '' if x[1] == 0 else ' y{}'.format(ni(x[1]))])
-    elif x[0] == '4':
-        return ''.join([' Mil Cuarenta', '' if x[1] == 0 else ' y{}'.format(ni(x[1]))])
-    elif x[0] == '5':
-        return ''.join([' Mil Cincuenta', '' if x[1] == 0 else ' y{}'.format(ni(x[1]))])
-    elif x[0] == '6':
-        return ''.join([' Mil Sesenta', '' if x[1] == 0 else ' y{}'.format(ni(x[1]))])
-    elif x[0] == '7':
-        return ''.join([' Mil Setenta', '' if x[1] == 0 else ' y{}'.format(ni(x[1]))])
-    elif x[0] == '8':
-        return ''.join([' Mil Ochenta', '' if x[1] == 0 else ' y{}'.format(ni(x[1]))])
-    elif x[0] == '9':
-        return ''.join([' Mil Noventa', '' if x[1] == 0 else ' y{}'.format(ni(x[1]))])
-    else:
-        if int(x) == 0:
-            ''
-        return ni(x[1])
-
-
-def nnni(x):
-    if x[0] == '1':
-        if x[1:3] == '00':
-            return ' Mil Cien'
-        else:
-            return ''.join([' Mil Ciento', nni(x[1:3])])
-    elif x[0] == '2':
-        return ''.join([' Mil Doscientos', '' if x[0] == '0' else nni(x[1:3])])
-    elif x[0] == '3':
-        return ''.join([' Mil Trescientos', '' if x[0] == '0' else nni(x[1:3])])
-    elif x[0] == '4':
-        return ''.join([' Mil Cuatrocientos', '' if x[0] == '0' else nni(x[1:3])])
-    elif x[0] == '5':
-        return ''.join([' Mil Quinientos', '' if x[0] == '0' else nni(x[1:3])])
-    elif x[0] == '6':
-        return ''.join([' Mil Seiscientos', '' if x[0] == '0' else nni(x[1:3])])
-    elif x[0] == '7':
-        return ''.join([' Mil Setecientos', '' if x[0] == '0' else nni(x[1:3])])
-    elif x[0] == '8':
-        return ''.join([' Mil Ochocientos', '' if x[0] == '0' else nni(x[1:3])])
-    elif x[0] == '9':
-        return ''.join([' Mil Novecientos', '' if x[0] == '0' else nni(x[1:3])])
-    else:
-        # 0 N N
-        return nni(x[1:3])
-
+print(nnn6('122201', bef=False))
 
 # COMPACTADOR DE MIL
 
-def nnn6(x):
-    return ''.join([nnn(x[0:3]), nnni(x[3:6])])
-
-print(nnn6('123123'))
-# asd123123123123
+# def nnn6(x):
+#     return ''.join([nnni(x[0:3]), nnni(x[3:6])])
