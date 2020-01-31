@@ -1,3 +1,4 @@
+# Bases para intermedios
 def ni(x, bef=True):
     if x == '1':
         return ' Uno' if bef else ' Un'
@@ -18,6 +19,7 @@ def ni(x, bef=True):
     elif x == '9':
         return ' Nueve'
     else:
+        # elif x == '0':
         return ''
 
 
@@ -42,10 +44,9 @@ def nni(x, bef=True):
         elif x == '18':
             return ' Dieciocho'
         else:
-            # 19
+            # elif x == '18':
             return ' Diecinueve'
     elif x[0] == '2':
-        # dos
         if x == '20':
             return ' Veinte'
         elif x == '21':
@@ -65,7 +66,7 @@ def nni(x, bef=True):
         elif x == '28':
             return ' Veintiocho'
         else:
-            # 29
+            # elif x == '29':
             return ' Veintinueve'
     elif x[0] == '3':
         return ''.join([' Treinta', '' if x[1] == 0 else ' y{}'.format(ni(x[1], bef))])
@@ -82,50 +83,67 @@ def nni(x, bef=True):
     elif x[0] == '9':
         return ''.join([' Noventa', '' if x[1] == 0 else ' y{}'.format(ni(x[1], bef))])
     else:
+        #  elif x[0] == '0':
         return ni(x[1], bef)
 
 
 def nnni(x, bef=True):
     if x[0] == '1':
-        if x[1:3] == '00':
+        if x[1:] == '00':
             return ' Cien'
         else:
             return ''.join([' Ciento', nni(x[1:3], bef)])
     elif x[0] == '2':
-        return ''.join([' Doscientos', '' if x[1:3] == '00' else nni(x[1:3], bef)])
+        return ''.join([' Doscientos', '' if x[1:3] == '00' else nni(x[:3], bef)])
     elif x[0] == '3':
-        return ''.join([' Trescientos', '' if x[1:3] == '00' else nni(x[1:3], bef)])
+        return ''.join([' Trescientos', '' if x[1:3] == '00' else nni(x[:3], bef)])
     elif x[0] == '4':
-        return ''.join([' Cuatrocientos', '' if x[1:3] == '00' else nni(x[1:3], bef)])
+        return ''.join([' Cuatrocientos', '' if x[1:3] == '00' else nni(x[:3], bef)])
     elif x[0] == '5':
-        return ''.join([' Quinientos', '' if x[1:3] == '00' else nni(x[1:3], bef)])
+        return ''.join([' Quinientos', '' if x[1:3] == '00' else nni(x[:3], bef)])
     elif x[0] == '6':
-        return ''.join([' Seiscientos', '' if x[1:3] == '00' else nni(x[1:3], bef)])
+        return ''.join([' Seiscientos', '' if x[1:3] == '00' else nni(x[:3], bef)])
     elif x[0] == '7':
-        return ''.join([' Setecientos', '' if x[1:3] == '00' else nni(x[1:3], bef)])
+        return ''.join([' Setecientos', '' if x[1:3] == '00' else nni(x[:3], bef)])
     elif x[0] == '8':
-        return ''.join([' Ochocientos', '' if x[1:3] == '00' else nni(x[1:3], bef)])
+        return ''.join([' Ochocientos', '' if x[1:3] == '00' else nni(x[:3], bef)])
     elif x[0] == '9':
-        return ''.join([' Novecientos', '' if x[1:3] == '00' else nni(x[1:3], bef)])
+        return ''.join([' Novecientos', '' if x[1:3] == '00' else nni(x[:3], bef)])
     else:
-        # 0 N N
-        return nni(x[1:3], bef)
+        # elif x[0] == '9':
+        return nni(x[1:], bef)
 
 
-def nnn6(x, bef=True):
+# Compactador de intermedios
+def n6(x, bef=True):
     if x == '000000':
         return ''
-    elif x[0:3] == '001':
-        return ''.join([' Mil', nnni(x[3:6], bef)])
-    elif x[0:3] == '000':
-        return nnni(x[3:6], bef)
+    elif x[:3] == '001':
+        return ''.join([' Mil', nnni(x[3:], bef)])
+    elif x[:3] == '000':
+        return nnni(x[3:], bef)
     else:
-        return ''.join([nnni(x[0:3], bef=False), ' Mil', nnni(x[3:6], bef)])
+        return ''.join([nnni(x[:3], bef=False), ' Mil', nnni(x[3:], bef)])
 
 
-print(nnn6('122201', bef=False))
+# Intermedios y millones
+def n12(x, bef=True):
+    if x[:6] == '000000':
+        return n6(x[6:])
+    elif x[:6] == '000001':
+        return ''.join([' Un Millón', n6(x[6:])])
+    else:
+        return ''.join([n6(x[:6], bef=False), ' Millones', n6(x[6:])])
 
-# COMPACTADOR DE MIL
 
-# def nnn6(x):
-#     return ''.join([nnni(x[0:3]), nnni(x[3:6])])
+class Numlet:
+
+    def __init__(self, x):
+        self.x = str(x)
+        self.largo = len(str(x))
+
+    def start(self):
+        if self.largo // 6 == 0 or self.largo // 6 == 1:
+            return n6(''.join(['00000', self.x])[-6:])
+
+print(Numlet('999999').start())
