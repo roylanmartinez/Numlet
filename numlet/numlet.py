@@ -234,3 +234,4 @@ def nnn6(x):
     return ''.join([nnn(x[0:3]), nnni(x[3:6])])
 
 print(nnn6('123123'))
+# asd
