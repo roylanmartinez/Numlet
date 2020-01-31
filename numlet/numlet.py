@@ -126,24 +126,29 @@ def n6(x, bef=True):
         return ''.join([nnni(x[:3], bef=False), ' Mil', nnni(x[3:], bef)])
 
 
-# Intermedios y millones
-def n12(x, bef=True):
+# Intermedios y tipo de cantidad en singular y plural (v1 y v2)
+def ninf(x, v1=' Un Millón', v2=' Millones'):
     if x[:6] == '000000':
         return n6(x[6:])
     elif x[:6] == '000001':
-        return ''.join([' Un Millón', n6(x[6:])])
+        return ''.join([v1, n6(x[6:])])
     else:
-        return ''.join([n6(x[:6], bef=False), ' Millones', n6(x[6:])])
+        return ''.join([n6(x[:6], bef=False), v2, n6(x[6:])])
 
 
+# Administrador
 class Numlet:
 
-    def __init__(self, x):
+    def __init__(self, x: str):
         self.x = str(x)
         self.largo = len(str(x))
 
     def start(self):
-        if self.largo // 6 == 0 or self.largo // 6 == 1:
+        if self.largo < 7:
             return n6(''.join(['00000', self.x])[-6:])
+        else:
+            if self.largo < 13:
+                return ninf(''.join(['00000', self.x])[-12:])
 
-print(Numlet('999999').start())
+
+# print(Numlet('123123123123').start().lower())
