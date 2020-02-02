@@ -94,21 +94,21 @@ def nnni(x, bef=True):
         else:
             return ''.join([' Ciento', nni(x[1:3], bef)])
     elif x[0] == '2':
-        return ''.join([' Doscientos', '' if x[1:3] == '00' else nni(x[:3], bef)])
+        return ''.join([' Doscientos', '' if x[1:3] == '00' else nni(x[1:3], bef)])
     elif x[0] == '3':
-        return ''.join([' Trescientos', '' if x[1:3] == '00' else nni(x[:3], bef)])
+        return ''.join([' Trescientos', '' if x[1:3] == '00' else nni(x[1:3], bef)])
     elif x[0] == '4':
-        return ''.join([' Cuatrocientos', '' if x[1:3] == '00' else nni(x[:3], bef)])
+        return ''.join([' Cuatrocientos', '' if x[1:3] == '00' else nni(x[1:3], bef)])
     elif x[0] == '5':
-        return ''.join([' Quinientos', '' if x[1:3] == '00' else nni(x[:3], bef)])
+        return ''.join([' Quinientos', '' if x[1:3] == '00' else nni(x[1:3], bef)])
     elif x[0] == '6':
-        return ''.join([' Seiscientos', '' if x[1:3] == '00' else nni(x[:3], bef)])
+        return ''.join([' Seiscientos', '' if x[1:3] == '00' else nni(x[1:3], bef)])
     elif x[0] == '7':
-        return ''.join([' Setecientos', '' if x[1:3] == '00' else nni(x[:3], bef)])
+        return ''.join([' Setecientos', '' if x[1:3] == '00' else nni(x[1:3], bef)])
     elif x[0] == '8':
-        return ''.join([' Ochocientos', '' if x[1:3] == '00' else nni(x[:3], bef)])
+        return ''.join([' Ochocientos', '' if x[1:3] == '00' else nni(x[1:3], bef)])
     elif x[0] == '9':
-        return ''.join([' Novecientos', '' if x[1:3] == '00' else nni(x[:3], bef)])
+        return ''.join([' Novecientos', '' if x[1:3] == '00' else nni(x[1:3], bef)])
     else:
         # elif x[0] == '9':
         return nni(x[1:], bef)
@@ -151,4 +151,4 @@ class Numlet:
                 return ninf(''.join(['00000', self.x])[-12:])
 
 
-# print(Numlet('123123123123').start().lower())
+print(Numlet('141234000001').start().lower())
