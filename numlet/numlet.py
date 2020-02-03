@@ -1,7 +1,7 @@
 # Bases para intermedios
 def ni(x, bef=True):
     if x == '1':
-        return ' Uno' if bef else ' Un'
+        return ' Uno' if bef else ' Ún'
     elif x == '2':
         return ' Dos'
     elif x == '3':
@@ -128,27 +128,28 @@ def n6(x, bef=True):
 
 # Intermedios y tipo de cantidad en singular y plural (v1 y v2)
 def ninf(x, v1=' Un Millón', v2=' Millones'):
-    if x[:6] == '000000':
-        return n6(x[6:])
-    elif x[:6] == '000001':
-        return ''.join([v1, n6(x[6:])])
+    if x == '000000':
+        return ''
+    elif x == '000001':
+        return v1
     else:
-        return ''.join([n6(x[:6], bef=False), v2, n6(x[6:])])
+        return ''.join([n6(x, bef=False), v2])
 
 
-# Administrador
+# Administrador en forma de clase
 class Numlet:
+    base = [
+        ['Ún millón', ' Millones'], ['Ún billón', 'Billones'],
+    ]
 
     def __init__(self, x: str):
-        self.x = str(x)
-        self.largo = len(str(x))
+        self.x = ''.join([int(6 - int(len(str(x)) % 6)) * '0', str(x)]) if len(str(x)) % 6 != 0 else str(x)
 
     def start(self):
-        if self.largo < 7:
-            return n6(''.join(['00000', self.x])[-6:])
+        if len(self.x) < 7:
+            return n6(self.x)
         else:
-            if self.largo < 13:
-                return ninf(''.join(['00000', self.x])[-12:])
+            vacio = ''
 
 
-print(Numlet('141234000001').start().lower())
+print(Numlet('101101').start())
