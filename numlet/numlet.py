@@ -1,7 +1,7 @@
 # Bases para intermedios
 def ni(x, bef=True):
     if x == '1':
-        return ' Uno' if bef else ' Ún'
+        return ' Uno' if bef else ' Un'
     elif x == '2':
         return ' Dos'
     elif x == '3':
@@ -69,19 +69,19 @@ def nni(x, bef=True):
             # elif x == '29':
             return ' Veintinueve'
     elif x[0] == '3':
-        return ''.join([' Treinta', '' if x[1] == 0 else ' y{}'.format(ni(x[1], bef))])
+        return ''.join([' Treinta', '' if x[1] == '0' else ' y{}'.format(ni(x[1], bef))])
     elif x[0] == '4':
-        return ''.join([' Cuarenta', '' if x[1] == 0 else ' y{}'.format(ni(x[1], bef))])
+        return ''.join([' Cuarenta', '' if x[1] == '0' else ' y{}'.format(ni(x[1], bef))])
     elif x[0] == '5':
-        return ''.join([' Cincuenta', '' if x[1] == 0 else ' y{}'.format(ni(x[1], bef))])
+        return ''.join([' Cincuenta', '' if x[1] == '0' else ' y{}'.format(ni(x[1], bef))])
     elif x[0] == '6':
-        return ''.join([' Sesenta', '' if x[1] == 0 else ' y{}'.format(ni(x[1], bef))])
+        return ''.join([' Sesenta', '' if x[1] == '0' else ' y{}'.format(ni(x[1], bef))])
     elif x[0] == '7':
-        return ''.join([' Setenta', '' if x[1] == 0 else ' y{}'.format(ni(x[1], bef))])
+        return ''.join([' Setenta', '' if x[1] == '0' else ' y{}'.format(ni(x[1], bef))])
     elif x[0] == '8':
-        return ''.join([' Ochenta', '' if x[1] == 0 else ' y{}'.format(ni(x[1], bef))])
+        return ''.join([' Ochenta', '' if x[1] == '0' else ' y{}'.format(ni(x[1], bef))])
     elif x[0] == '9':
-        return ''.join([' Noventa', '' if x[1] == 0 else ' y{}'.format(ni(x[1], bef))])
+        return ''.join([' Noventa', '' if x[1] == '0' else ' y{}'.format(ni(x[1], bef))])
     else:
         #  elif x[0] == '0':
         return ni(x[1], bef)
@@ -110,11 +110,11 @@ def nnni(x, bef=True):
     elif x[0] == '9':
         return ''.join([' Novecientos', '' if x[1:3] == '00' else nni(x[1:3], bef)])
     else:
-        # elif x[0] == '9':
+        # elif x[0] == '0':
         return nni(x[1:], bef)
 
 
-# Compactador de intermedios
+# Compactador de menores de un millon
 def n6(x, bef=True):
     if x == '000000':
         return ''
@@ -139,17 +139,27 @@ def ninf(x, v1=' Un Millón', v2=' Millones'):
 # Administrador en forma de clase
 class Numlet:
     base = [
-        ['Ún millón', ' Millones'], ['Ún billón', 'Billones'],
+        [' Un Cuatrillón', ' Cuatrillones'], [' Un Trillón', ' Trillones'], [' Un billón', ' Billones'],
+        [' Un millón', ' Millones'],
     ]
 
-    def __init__(self, x: str):
+    def __init__(self, x: int):
         self.x = ''.join([int(6 - int(len(str(x)) % 6)) * '0', str(x)]) if len(str(x)) % 6 != 0 else str(x)
 
     def start(self):
         if len(self.x) < 7:
             return n6(self.x)
         else:
-            vacio = ''
+            grups = [(self.x[i:i + 6]) for i in range(0, len(self.x), 6)]
+            lrg = len(self.x) // 6 - 1
+            final = ''
+            for indi, elem in enumerate(self.base[-lrg:]):
+                final += ninf(grups[indi], v1=elem[0], v2=elem[1])
+            return ''.join([final, n6(grups[-1])])[1:]
 
 
-print(Numlet('101101').start())
+test = 'mil diez billones ciento un mil diez millones ciento diez mil ciento uno'
+
+
+print(test == Numlet(1010101010110101).start().lower()
+)
