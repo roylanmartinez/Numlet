@@ -117,7 +117,7 @@ def nnni(x, bef=True):
 # Compactador de menores de un millon
 def n6(x, bef=True):
     if x == '000000':
-        return ''
+        return ' Cero' if bef else ''
     elif x[:3] == '001':
         return ''.join([' Mil', nnni(x[3:], bef)])
     elif x[:3] == '000':
@@ -126,7 +126,7 @@ def n6(x, bef=True):
         return ''.join([nnni(x[:3], bef=False), ' Mil', nnni(x[3:], bef)])
 
 
-# Intermedios y tipo de cantidad en singular y plural (v1 y v2)
+# Compactador de intermedios y tipo de cantidad en singular y plural (v1 y v2)
 def ninf(x, v1=' Un Millón', v2=' Millones'):
     if x == '000000':
         return ''
@@ -139,16 +139,24 @@ def ninf(x, v1=' Un Millón', v2=' Millones'):
 # Administrador en forma de clase
 class Numlet:
     base = [
-        [' Un Cuatrillón', ' Cuatrillones'], [' Un Trillón', ' Trillones'], [' Un billón', ' Billones'],
-        [' Un millón', ' Millones'],
+        [' Un Vigintillón', ' Vigintillones'],
+        [' Un Novendecillón', ' Novendecillones'], [' Un Octodecillón', ' Octodecillones'],
+        [' Un Septendecillón', ' Septendecillones'], [' Un Sexdecillón', ' Sexdecillones'],
+        [' Un Quindecillón', ' Quindecillones'], [' Un Cuatordecillón', ' Cuatordecillones'],
+        [' Un Tredecillón', ' Tredecillones'], [' Un Duodecillón', ' Duodecillones'],
+        [' Un Undecillón', ' Undecillones'], [' Un Decillón', ' Decillones'],
+        [' Un Nonillón', ' Nonillones'], [' Un Octillón', ' Octillones'], [' Un Septillón', ' Septillones'],
+        [' Un Sextillón', ' Sextillones'], [' Un Quintillón', ' Quintillones'], [' Un Cuatrillón', ' Cuatrillones'],
+        [' Un Trillón', ' Trillones'], [' Un billón', ' Billones'], [' Un millón', ' Millones'],
     ]
 
     def __init__(self, x: int):
-        self.x = ''.join([int(6 - int(len(str(x)) % 6)) * '0', str(x)]) if len(str(x)) % 6 != 0 else str(x)
+        self.x = str(x) if len(str(x)) % 6 == 0 else ''.join([int(6 - int(len(str(x)) % 6)) * '0', str(x)])
+        self.start = self.start()
 
     def start(self):
         if len(self.x) < 7:
-            return n6(self.x)
+            return n6(self.x)[1:]
         else:
             grups = [(self.x[i:i + 6]) for i in range(0, len(self.x), 6)]
             lrg = len(self.x) // 6 - 1
@@ -157,9 +165,8 @@ class Numlet:
                 final += ninf(grups[indi], v1=elem[0], v2=elem[1])
             return ''.join([final, n6(grups[-1])])[1:]
 
+test = 'cien mil un vigintillones un novendecillones un octodecillones un septendecillones un sexdecillones un quindecillones un cuatordecillones un tredecillones un duodecillones un undecillones un decillones un nonillones un octillones un septillones un sextillones un quintillones un cuatrillones un trillones un billones un millones uno'
+test1 = Numlet(100001000001000001000001000001000001000001000001000001000001000001000001000001000001000001000001000001000001000001000001000001).start.lower()
 
-test = 'mil diez billones ciento un mil diez millones ciento diez mil ciento uno'
+print('{} \n{} \n{}'.format(test, test1, bool(test1 == test)))
 
-
-print(test == Numlet(1010101010110101).start().lower()
-)
