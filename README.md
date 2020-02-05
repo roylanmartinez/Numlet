@@ -3,23 +3,23 @@
 
 ### Forma de uso:
 
-    Primer ejemplo:
+   #### Primer ejemplo:
        n = 123
        resultado = Numero(n).a_letras
        print(resultado)
        --- Ciento Veintitrés
 
-    Segundo ejemplo:
+   #### Segundo ejemplo:
         n = 123
         resultado = Numero(n).a_letras.lower()
         print(resultado)
        --- ciento veintitrés
 
-    Tercer ejemplo:
+   #### Tercer ejemplo:
         n = 123
         resultado = Numero(n).a_letras.upper()
         print(resultado)
        --- CIENTO VEINTITRÉS
 
-    ¡Espero que les guste!
-    Repositorio: https://github.com/roylanmartinez/Numeros-naturales-y-cero-a-letras
+   ### ¡Espero que les guste! 
+   Repositorio: https://github.com/roylanmartinez/Numeros-naturales-y-cero-a-letras
