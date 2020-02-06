@@ -1,28 +1,34 @@
 """
-   La librería numlet.py te permite convertir más de 10^120 números cardinales naturales (*Incluido el cero)
-   en letras.
+   La librería numlet.py te permite convertir más de 10^120 números naturales (*Incluido el cero) a letras.
+   La clase 'Numero(x: int).a_letras' retorna un string, por lo tanto se le pueden asociar métodos subordinados
+   a objetos de tipo string.
 
    Forma de uso:
 
-   Primer ejemplo:
+    Primer ejemplo:
        n = 123
-       resultado = Numero(n).aletras
+       resultado = Numero(n).a_letras
        print(resultado)
        --- Ciento Veintitrés
 
     Segundo ejemplo:
-    Numero retorna un string, por lo tanto se pueden le aplicar métodos subordinados a objetos de tipo string.
         n = 123
-        resultado = Numero(n).aletras.lower()
+        resultado = Numero(n).a_letras.lower()
         print(resultado)
        --- ciento veintitrés
+
+    Tercer ejemplo:
+        n = 123
+        resultado = Numero(n).a_letras.upper()
+        print(resultado)
+       --- CIENTO VEINTITRÉS
 
     ¡Espero que les guste!
     Repositorio: https://github.com/roylanmartinez/Numeros-naturales-y-cero-a-letras
 """
 
 
-# Bases para intermedios
+# Bases para intermedios: ni(), nni() y nnni()
 def ni(x, bef=True):
     if x == '1':
         return ' Uno' if bef else ' Un'
@@ -93,19 +99,19 @@ def nni(x, bef=True):
             # elif x == '29':
             return ' Veintinueve'
     elif x[0] == '3':
-        return ''.join([' Treinta', '' if x[1] == '0' else ' y{}'.format(ni(x[1], bef))])
+        return ''.join([' Treinta', '' if x[1] == '0' else ''.join([' y', ni(x[1], bef)])])
     elif x[0] == '4':
-        return ''.join([' Cuarenta', '' if x[1] == '0' else ' y{}'.format(ni(x[1], bef))])
+        return ''.join([' Cuarenta', '' if x[1] == '0' else ''.join([' y', ni(x[1], bef)])])
     elif x[0] == '5':
-        return ''.join([' Cincuenta', '' if x[1] == '0' else ' y{}'.format(ni(x[1], bef))])
+        return ''.join([' Cincuenta', '' if x[1] == '0' else ''.join([' y', ni(x[1], bef)])])
     elif x[0] == '6':
-        return ''.join([' Sesenta', '' if x[1] == '0' else ' y{}'.format(ni(x[1], bef))])
+        return ''.join([' Sesenta', '' if x[1] == '0' else ''.join([' y', ni(x[1], bef)])])
     elif x[0] == '7':
-        return ''.join([' Setenta', '' if x[1] == '0' else ' y{}'.format(ni(x[1], bef))])
+        return ''.join([' Setenta', '' if x[1] == '0' else ''.join([' y', ni(x[1], bef)])])
     elif x[0] == '8':
-        return ''.join([' Ochenta', '' if x[1] == '0' else ' y{}'.format(ni(x[1], bef))])
+        return ''.join([' Ochenta', '' if x[1] == '0' else ''.join([' y', ni(x[1], bef)])])
     elif x[0] == '9':
-        return ''.join([' Noventa', '' if x[1] == '0' else ' y{}'.format(ni(x[1], bef))])
+        return ''.join([' Noventa', '' if x[1] == '0' else ''.join([' y', ni(x[1], bef)])])
     else:
         #  elif x[0] == '0':
         return ni(x[1], bef)
@@ -138,7 +144,7 @@ def nnni(x, bef=True):
         return nni(x[1:], bef)
 
 
-# Compactador de menores de un millon
+# Compactador de menores de un millon: n6()
 def n6(x, bef=True):
     if x == '000000':
         return ''
@@ -150,7 +156,7 @@ def n6(x, bef=True):
         return ''.join([nnni(x[:3], bef=False), ' Mil', nnni(x[3:], bef)])
 
 
-# Compactador de intermedios y tipo de cantidad en singular y plural (v1 y v2)
+# Compactador de intermedios y tipo de cantidad en singular y plural (v1 y v2): ninf()
 def ninf(x, v1=' Un Millón', v2=' Millones'):
     if x == '000000':
         return ''
@@ -160,12 +166,12 @@ def ninf(x, v1=' Un Millón', v2=' Millones'):
         return ''.join([n6(x, bef=False), v2])
 
 
-# Administrador en forma de clase
+# Administrador en forma de clase:
 class Numero:
     """
     Esta clase básicamente controla el uso de las funciones compactadores ninf() y n6(), que a su vez coordinan el uso
     de las funciones base ni(), nni() y nnni(). Además, incluye los datos que posteriormente se ordenan y se pasan
-    como parámetros al método aletras().
+    como parámetros al método a_letras().
     """
     base = [
         [' Un Novenvigintillón', ' Novenvigintillones'], [' Un Octovigintillón', ' Octovigintillones'],
@@ -185,20 +191,21 @@ class Numero:
 
     def __init__(self, x: int):
 
-        self.x = str(x) if len(str(x)) % 6 == 0 else ''.join([int(6 - int(len(str(x)) % 6)) * '0', str(x)])
-        self.aletras = self.aletras()
+        cambio = len(str(x)) % 6 == 0
+        self.x = str(x) if cambio else ''.join([int(6 - int(len(str(x)) % 6)) * '0', str(x)])
+        self.a_letras = self.a_letras()
 
-    def aletras(self):
+    def a_letras(self):
 
         if len(self.x) < 7:
-            return ' Cero' if self.x == '000000' else n6(self.x)[1:]
+            cero = self.x == '000000'
+            return ' Cero' if cero else n6(self.x)[1:]
         else:
-            grups = [(self.x[i:i + 6]) for i in range(0, len(self.x), 6)]
+            grupos = [(self.x[i:i + 6]) for i in range(0, len(self.x), 6)]
             lrg = len(self.x) // 6 - 1
             final = ''
-            for indi, elem in enumerate(self.base[-lrg:]):
-                final += ninf(grups[indi], v1=elem[0], v2=elem[1])
-            return ''.join([final, n6(grups[-1])])[1:]
+            for indice, elemento in enumerate(self.base[-lrg:]):
+                final += ninf(grupos[indice], v1=elemento[0], v2=elemento[1])
+            return ''.join([final, n6(grupos[-1])])[1:]
 
 
-print(Numero(10 ** 180).aletras)
