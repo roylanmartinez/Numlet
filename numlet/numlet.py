@@ -174,6 +174,42 @@ class Numero:
     como parámetros al método a_letras().
     """
     base = [
+        [' Un Centillón', ' Centillones'],
+        [' Un Novenonigintillón', ' Novenonigintillones'], [' Un Octononigintillón', ' Octononigintillones'],
+        [' Un Septenonigintillón', ' Septenonigintillones'], [' Un Sexvigintillón', ' Sexvigintillones'],
+        [' Un Quinonintillón', ' Quinonigintillones'], [' Un Cuatornonigintillón', ' Cuatornonigintillones'],
+        [' Un Trenonigintillón', ' Trenonigintillones'], [' Un Duononigintillón', ' Duononigintillones'],
+        [' Un Unonigintillón', ' Unonigintillones'], [' Un Nonigintillón', ' Nonigintillones'],
+        [' Un Novenoctigintillón', ' Novenoctigintillones'], [' Un Octooctigintillón', ' Octooctigintillones'],
+        [' Un Septenoctigintillón', ' Septenoctigintillones'], [' Un Sexvigintillón', ' Sexvigintillones'],
+        [' Un Quinoctintillón', ' Quinoctigintillones'], [' Un Cuatoroctigintillón', ' Cuatoroctigintillones'],
+        [' Un Treoctigintillón', ' Treoctigintillones'], [' Un Duooctigintillón', ' Duooctigintillones'],
+        [' Un Unoctigintillón', ' Unoctigintillones'], [' Un Octigintillón', ' Octigintillones'],
+        [' Un Novenseptigintillón', ' Novenseptigintillones'], [' Un Octoseptigintillón', ' Octoseptigintillones'],
+        [' Un Septenseptigintillón', ' Septenseptigintillones'], [' Un Sexvigintillón', ' Sexvigintillones'],
+        [' Un Quinseptintillón', ' Quinseptigintillones'], [' Un Cuatorseptigintillón', ' Cuatorseptigintillones'],
+        [' Un Treseptigintillón', ' Treseptigintillones'], [' Un Duoseptigintillón', ' Duoseptigintillones'],
+        [' Un Unseptigintillón', ' Unseptigintillones'], [' Un Septigintillón', ' Septigintillones'],
+        [' Un Novensextigintillón', ' Novensextigintillones'], [' Un Octosextigintillón', ' Octosextigintillones'],
+        [' Un Septensextigintillón', ' Septensextigintillones'], [' Un Sexvigintillón', ' Sexvigintillones'],
+        [' Un Quinsextintillón', ' Quinsextigintillones'], [' Un Cuatorsextigintillón', ' Cuatorsextigintillones'],
+        [' Un Tresextigintillón', ' Tresextigintillones'], [' Un Duosextigintillón', ' Duosextigintillones'],
+        [' Un Unsextigintillón', ' Unsextigintillones'], [' Un Sextigintillón', ' Sextigintillones'],
+        [' Un Novenquintigintillón', ' Novenquintigintillones'], [' Un Octoquintigintillón', ' Octoquintigintillones'],
+        [' Un Septenquintigintillón', ' Septenquintigintillones'], [' Un Sexvigintillón', ' Sexvigintillones'],
+        [' Un Quinquintintillón', ' Quinquintigintillones'], [' Un Cuatorquintigintillón', ' Cuatorquintigintillones'],
+        [' Un Trequintigintillón', ' Trequintigintillones'], [' Un Duoquintigintillón', ' Duoquintigintillones'],
+        [' Un Unquintigintillón', ' Unquintigintillones'], [' Un Quintigintillón', ' Quintigintillones'],
+        [' Un Novencuatrigintillón', ' Novencuatrigintillones'], [' Un Octocuatrigintillón', ' Octocuatrigintillones'],
+        [' Un Septencuatrigintillón', ' Septencuatrigintillones'], [' Un Sexvigintillón', ' Sexvigintillones'],
+        [' Un Quincuatrintillón', ' Quincuatrigintillones'], [' Un Cuatorcuatrigintillón', ' Cuatorcuatrigintillones'],
+        [' Un Trecuatrigintillón', ' Trecuatrigintillones'], [' Un Duocuatrigintillón', ' Duocuatrigintillones'],
+        [' Un Uncuatrigintillón', ' Uncuatrigintillones'], [' Un Cuatrigintillón', ' Cuatrigintillones'],
+        [' Un Noventrigintillón', ' Noventrigintillones'], [' Un Octotrigintillón', ' Octotrigintillones'],
+        [' Un Septentrigintillón', ' Septentrigintillones'], [' Un Sextrigintillón', ' Sextrigintillones'],
+        [' Un Quintrintillón', ' Quintrigintillones'], [' Un Cuatortrigintillón', ' Cuatortrigintillones'],
+        [' Un Tretrigintillón', ' Tretrigintillones'], [' Un Duotrigintillón', ' Duotrigintillones'],
+        [' Un Untrigintillón', ' Untrigintillones'], [' Un Trigintillón', ' Trigintillones'],
         [' Un Novenvigintillón', ' Novenvigintillones'], [' Un Octovigintillón', ' Octovigintillones'],
         [' Un Septenvigintillón', ' Septenvigintillones'], [' Un Sexvigintillón', ' Sexvigintillones'],
         [' Un Quinvigintillón', ' Quinvigintillones'], [' Un Cuatorvigintillón', ' Cuatorvigintillones'],
@@ -209,3 +245,4 @@ class Numero:
             return ''.join([final, n6(grupos[-1])])[1:]
 
 
+print(Numero(10**600).a_letras.lower())
