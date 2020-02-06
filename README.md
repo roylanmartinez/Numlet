@@ -1,6 +1,6 @@
 # Numlet
 
-Numlet es una pequeña librería basada en Python para convertir más de 10^600 diferentes números naturales y cero a letras.
+Numlet es una pequeña librería basada en Python capaz de convertir más de 10^600 diferentes números naturales y cero a letras.
 
 ## Instalación
 
