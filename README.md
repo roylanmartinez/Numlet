@@ -2,7 +2,7 @@
 
 Numlet es una pequeña librería basada en Python para convertir más de 10^600 diferentes números a letras.
 
-## Instalacion
+## Instalación
 
 Descarga el archivo [numlet.py](https://github.com/roylanmartinez/Numeros-naturales-y-cero-a-letras/tree/master/numlet/) y guardalo en el mismo directorio de tu python script.
 
