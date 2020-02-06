@@ -42,4 +42,4 @@ Las pull requests son bienvenidas, así como comentarios acerca de mejoras o bug
 [MIT](LICENSE)
 
    ### ¡Espero que les guste! 
-   Repositorio: https://github.com/roylanmartinez/Numeros-naturales-y-cero-a-letras
+   Repositorio: https://github.com/roylanmartinez/Numlet
