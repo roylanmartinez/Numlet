@@ -3,9 +3,12 @@
 Numlet es una pequeña librería basada en Python capaz de convertir más de 10^600 diferentes números naturales y cero a letras.
 
 ## Instalación
-
-Descarga el archivo [numlet.py](https://github.com/roylanmartinez/Numeros-naturales-y-cero-a-letras/tree/master/numlet/) y guardalo en la misma carpeta de tu python script.
-
+### Paso 1:
+[Descarga](https://github.com/roylanmartinez/Numlet/archive/master.zip) el zip del repostorio
+### Paso 2:
+Dentro del zip del repositorio, navega a ***Numlet-master/numlet*** donde encontrarás el archivo ***numlet.py***
+### Paso 3:
+Copias el archivo ***numlet.py*** y lo pegas en el mismo directorio de tu script.
 ## Uso
 Ahora en tu script simplemente lo importas.
 ```python
