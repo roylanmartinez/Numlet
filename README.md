@@ -4,7 +4,7 @@ Numlet es una pequeña librería basada en Python capaz de convertir más de 10^
 
 ## Instalación
 
-Descarga el archivo [numlet.py](https://github.com/roylanmartinez/Numeros-naturales-y-cero-a-letras/tree/master/numlet/) y guardalo en el mismo directorio de tu python script.
+Descarga el archivo [numlet.py](https://github.com/roylanmartinez/Numeros-naturales-y-cero-a-letras/tree/master/numlet/) y guardalo en la misma carpeta de tu python script.
 
 ## Uso
 Ahora en tu script simplemente lo importas.
