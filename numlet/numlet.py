@@ -1,27 +1,29 @@
 """
-   La librería numlet.py te permite convertir más de 10^120 números naturales (*Incluido el cero) a letras.
-   La clase 'Numero(x: int).a_letras' retorna un string, por lo tanto se le pueden asociar métodos subordinados
-   a objetos de tipo string.
+   La librería de numlet.py te permite convertir más de 10^600 números naturales distintos, incluido el cero, a letras.
+   La clase 'Numeros' toma como parámetro un integer y mediante el método 'a_letras' retorna un string.
+   Por lo tanto, a la hora de retornar un resultado se le pueden asociar métodos subordinados a objetos de carácter str,
+   por ejemplo .lower() y además también se puede ingresar un input asociado a métodos de carácter int, por ejemplo,
+   abs(*cantidad negativa).
 
    Forma de uso:
 
     Primer ejemplo:
-       n = 123
+       n = 1210
        resultado = Numero(n).a_letras
        print(resultado)
-       --- Ciento Veintitrés
+       --- Mil Doscientos Diez
 
     Segundo ejemplo:
-        n = 123
+        n = 1210
         resultado = Numero(n).a_letras.lower()
         print(resultado)
-       --- ciento veintitrés
+       --- mil doscientos diez
 
     Tercer ejemplo:
-        n = 123
+        n = abs(-121*10)
         resultado = Numero(n).a_letras.upper()
         print(resultado)
-       --- CIENTO VEINTITRÉS
+       --- MIL DOSCIENTOS DIEZ
 
     ¡Espero que les guste!
     Repositorio: https://github.com/roylanmartinez/Numeros-naturales-y-cero-a-letras
@@ -245,4 +247,4 @@ class Numero:
             return ''.join([final, n6(grupos[-1])])[1:]
 
 
-print(Numero(10**600).a_letras.lower())
+
