@@ -33,7 +33,7 @@ print(resultado)
 ```
 > MIL DOSCIENTOS DIEZ
 ## Contribución
-Las pull requests son bienvenidas, así como comentarios acerca de mejoras. 
+Las pull requests son bienvenidas, así como comentarios acerca de mejoras o bugs. 
 
 ## Licencia
 [MIT](LICENSE)
