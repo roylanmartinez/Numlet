@@ -8,7 +8,7 @@ Numlet es una pequeña librería basada en Python capaz de convertir más de 10^
 ### Paso 2:
 Dentro del zip del repositorio, navega a ***Numlet-master/numlet*** donde encontrarás el archivo ***numlet.py***
 ### Paso 3:
-Copias el archivo ***numlet.py*** y lo pegas en el mismo directorio de tu script.
+Copias el archivo ***numlet.py*** y lo pegas en la misma carpeta donde tengas tu script.
 ## Uso
 Ahora en tu script simplemente lo importas.
 ```python
