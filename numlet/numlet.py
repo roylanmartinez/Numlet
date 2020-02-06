@@ -249,3 +249,12 @@ class Numero:
             for indice, elemento in enumerate(self.base[-lrg:]):
                 final += ninf(grupos[indice], v1=elemento[0], v2=elemento[1])
             return ''.join([final, n6(grupos[-1])])[1:]
+
+
+def main():
+    test = 10 ** 600 + 1
+    print(Numero(test).a_letras.lower())
+
+
+if __name__ == '__main__':
+    main()
