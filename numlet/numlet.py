@@ -5,28 +5,11 @@
    por ejemplo .lower() y además también se puede ingresar un input asociado a métodos de carácter int, por ejemplo,
    abs(*cantidad negativa).
 
-   Forma de uso:
+   Las instrucciones están dentro de la clase Numero.
 
-    Primer ejemplo:
-       n = 1210
-       resultado = Numero(n).a_letras
-       print(resultado)
-       --- Mil Doscientos Diez
+   ¡Espero que les guste!
 
-    Segundo ejemplo:
-        n = 1210
-        resultado = Numero(n).a_letras.lower()
-        print(resultado)
-       --- mil doscientos diez
-
-    Tercer ejemplo:
-        n = abs(-121*10)
-        resultado = Numero(n).a_letras.upper()
-        print(resultado)
-       --- MIL DOSCIENTOS DIEZ
-
-    ¡Espero que les guste!
-    Repositorio: https://github.com/roylanmartinez/Numeros-naturales-y-cero-a-letras
+   Repositorio: https://github.com/roylanmartinez/Numeros-naturales-y-cero-a-letras
 """
 
 
@@ -173,7 +156,28 @@ class Numero:
     """
     Esta clase básicamente controla el uso de las funciones compactadores ninf() y n6(), que a su vez coordinan el uso
     de las funciones base ni(), nni() y nnni(). Además, incluye los datos que posteriormente se ordenan y se pasan
-    como parámetros al método a_letras().
+    como parámetros al método a_letras() mediante el atributo a_letras.
+
+       Forma de uso:
+
+    Primer ejemplo:
+       n = 1210
+       resultado = Numero(n).a_letras
+       print(resultado)
+       --- Mil Doscientos Diez
+
+    Segundo ejemplo:
+        n = 1210
+        resultado = Numero(n).a_letras.lower()
+        print(resultado)
+       --- mil doscientos diez
+
+    Tercer ejemplo:
+        n = abs(-121*10)
+        resultado = Numero(n).a_letras.upper()
+        print(resultado)
+       --- MIL DOSCIENTOS DIEZ
+
     """
     base = [
         [' Un Centillón', ' Centillones'],
@@ -245,6 +249,3 @@ class Numero:
             for indice, elemento in enumerate(self.base[-lrg:]):
                 final += ninf(grupos[indice], v1=elemento[0], v2=elemento[1])
             return ''.join([final, n6(grupos[-1])])[1:]
-
-
-
