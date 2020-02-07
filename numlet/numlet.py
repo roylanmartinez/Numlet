@@ -252,7 +252,7 @@ class Numero:
 
 
 def main():
-    test = 10 ** 600 + 1
+    test = 10 ** 500 + 1
     print(Numero(test).a_letras.lower())
 
 
