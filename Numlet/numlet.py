@@ -252,7 +252,7 @@ class Numero:
 
 
 def main():
-    print(Numero(123_456_789 + 1000 + 100 + 1).a_letras.lower())
+    print(Numero(123_456_789 + 1_000 + 100 + 1).a_letras.lower())
 
 
 if __name__ == '__main__':

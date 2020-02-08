@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="Paquete-Numlet-roylanmartinez",
-    version="0.0.1",
+    version="0.1.1",
     author="Roylan Martinez Vargas",
     author_email="roylanmartinez97@gmail.com",
     description="Convierte a letras más de 10^600 números",
