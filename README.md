@@ -2,18 +2,34 @@
 
 Numlet es una pequeña librería basada en Python capaz de convertir más de 10^600 diferentes números naturales y cero a letras.
 
-## Instalación
-### Paso 1:
-[Descarga](https://github.com/roylanmartinez/Numlet/archive/master.zip) el zip del repostorio
-### Paso 2:
-Dentro del zip del repositorio, navega a ***Numlet-master/numlet*** donde encontrarás el archivo ***numlet.py***
-### Paso 3:
-Copias el archivo ***numlet.py*** y lo pegas en la misma carpeta donde tengas tu script.
-## Uso
+## Instrucciones de instalación 
+###### Pero antes,
+ - Asegurate de tener la última versión de pip instalada.
+ - Nota que la primera alternativa se lleva a cabo desde un archivo normal de Python y la segunda desde un Jupyter Notebook.
+#### Primera alternativa.
+###### Esta alternativa se ha probado desde PyCharm.
+##### 1. Abre el script donde quieres importar Numlet.
+##### 2. Ve a la terminal del IDE y ejecuta:
+    >  pip install git+https://github.com/roylanmartinez/Numlet.git
+###### Si trabajas desde otro IDE y no sabes como instalar un package haz clíck [aquí](https://packaging.python.org/tutorials/installing-packages/)
+
+#####3. Listo. Ve a la sección [Utilización](#utilización). 
+
+#### Segunda alternativa
+###### Esta alternativa se ha probado desde Jupyter Notebook.
+##### 1. Abre el script donde quieras importar Numlet.
+##### 2. En la primera celda ejecuta:
+```python
+In []: ! pip install git+https://github.com/roylanmartinez/Numlet.git
+```
+#####3. Listo. En la siguiente sección puedes ver como utilizarla.
+## Utilización 
 Ahora en tu script simplemente lo importas.
 ```python
-import numlet as nl
+from Numlet import numlet as nl
 ```
+###### Sino sabes como importar un módulo haz click [aquí](https://docs.python.org/3/tutorial/modules.html).
+
 ##### Ejemplo 1:
 ```python
 n = 1210
@@ -27,7 +43,7 @@ n = 1210
 resultado = nl.Numero(n).a_letras.lower()
 print(resultado)
 ```
-> mil doscientos diez
+ > mil doscientos diez
 ##### Ejemplo 3:
 ```python
 n = abs(-121*10)
