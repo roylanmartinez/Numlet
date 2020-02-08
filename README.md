@@ -8,21 +8,23 @@ Numlet es una pequeña librería basada en Python capaz de convertir más de 10^
  - Nota que la primera alternativa se lleva a cabo desde un archivo normal de Python y la segunda desde un Jupyter Notebook.
 #### Primera alternativa.
 ###### Esta alternativa se ha probado desde PyCharm.
-##### 1. Abre el script donde quieres importar Numlet.
-##### 2. Ve a la terminal del IDE y ejecuta:
+1. Abre el script donde quieres importar Numlet.
+2. Ve a la terminal del IDE y ejecuta:
+```
     >  pip install git+https://github.com/roylanmartinez/Numlet.git
+```
 ###### Si trabajas desde otro IDE y no sabes como instalar un package haz clíck [aquí](https://packaging.python.org/tutorials/installing-packages/)
 
-##### 3. Listo. Ve a la sección [Utilización](#utilización). 
+3. Listo. Ve a la sección [Utilización](#utilización). 
 
 #### Segunda alternativa
 ###### Esta alternativa se ha probado desde Jupyter Notebook.
-##### 1. Abre el script donde quieras importar Numlet.
-##### 2. En la primera celda ejecuta:
-
+1. Abre el script donde quieras importar Numlet.
+2. En la primera celda ejecuta:
+```
     In []: ! pip install git+https://github.com/roylanmartinez/Numlet.git
-
-##### 3. Listo. En la siguiente sección puedes ver como utilizarla.
+```
+3. Listo. En la siguiente sección puedes ver como utilizarla.
 ## Utilización 
 Ahora en tu script simplemente lo importas.
 ```python
