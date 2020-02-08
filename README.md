@@ -22,7 +22,7 @@ Numlet es una pequeña librería basada en Python capaz de convertir más de 10^
 
     In []: ! pip install git+https://github.com/roylanmartinez/Numlet.git
 
-#####3. Listo. En la siguiente sección puedes ver como utilizarla.
+##### 3. Listo. En la siguiente sección puedes ver como utilizarla.
 ## Utilización 
 Ahora en tu script simplemente lo importas.
 ```python
