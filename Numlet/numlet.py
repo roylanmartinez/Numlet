@@ -14,7 +14,7 @@
 
 
 # Bases para intermedios: ni(), nni() y nnni()
-def ni(x, bef=True):
+def ni(x: str, bef=True):
     if x == '1':
         return ' Uno' if bef else ' Un'
     elif x == '2':
@@ -38,7 +38,7 @@ def ni(x, bef=True):
         return ''
 
 
-def nni(x, bef=True):
+def nni(x: str, bef=True):
     if x[0] == '1':
         if x == '10':
             return ' Diez'
@@ -102,7 +102,7 @@ def nni(x, bef=True):
         return ni(x[1], bef)
 
 
-def nnni(x, bef=True):
+def nnni(x: str, bef=True):
     if x[0] == '1':
         if x[1:] == '00':
             return ' Cien'
@@ -130,7 +130,7 @@ def nnni(x, bef=True):
 
 
 # Compactador de menores de un millon: n6()
-def n6(x, bef=True):
+def n6(x: str, bef=True):
     if x == '000000':
         return ''
     elif x[:3] == '001':
@@ -142,7 +142,7 @@ def n6(x, bef=True):
 
 
 # Compactador de intermedios y tipo de cantidad en singular y plural (v1 y v2): ninf()
-def ninf(x, v1=' Un Millón', v2=' Millones'):
+def ninf(x: str, v1=' Un Millón', v2=' Millones'):
     if x == '000000':
         return ''
     elif x == '000001':
@@ -252,10 +252,8 @@ class Numero:
 
 
 def main():
-    test = 10 ** 500 + 1
-    print(Numero(test).a_letras.lower())
+    print(Numero(123_456_789 + 1000 + 100 + 1).a_letras.lower())
 
 
 if __name__ == '__main__':
     main()
-
