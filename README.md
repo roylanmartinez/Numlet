@@ -24,13 +24,13 @@ Numlet es una pequeña librería basada en Python capaz de convertir más de 10^
 ```
     In []: ! pip install git+https://github.com/roylanmartinez/Numlet.git
 ```
-3. Listo. En la siguiente sección puedes ver como utilizarla.
+3. Listo. Ve a la sección [Utilización](#utilización). 
 ## Utilización 
-Ahora en tu script simplemente lo importas.
+Ahora en tu script simplemente la importas.
 ```python
 from Numlet import numlet as nl
 ```
-###### Sino sabes como importar un módulo haz click [aquí](https://docs.python.org/3/tutorial/modules.html).
+###### Si no sabes como importar un módulo haz click [aquí](https://docs.python.org/3/tutorial/modules.html).
 
 ##### Ejemplo 1:
 ```python
