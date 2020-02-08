@@ -13,15 +13,15 @@ Numlet es una pequeña librería basada en Python capaz de convertir más de 10^
     >  pip install git+https://github.com/roylanmartinez/Numlet.git
 ###### Si trabajas desde otro IDE y no sabes como instalar un package haz clíck [aquí](https://packaging.python.org/tutorials/installing-packages/)
 
-#####3. Listo. Ve a la sección [Utilización](#utilización). 
+##### 3. Listo. Ve a la sección [Utilización](#utilización). 
 
 #### Segunda alternativa
 ###### Esta alternativa se ha probado desde Jupyter Notebook.
 ##### 1. Abre el script donde quieras importar Numlet.
 ##### 2. En la primera celda ejecuta:
-```python
-In []: ! pip install git+https://github.com/roylanmartinez/Numlet.git
-```
+
+    In []: ! pip install git+https://github.com/roylanmartinez/Numlet.git
+
 #####3. Listo. En la siguiente sección puedes ver como utilizarla.
 ## Utilización 
 Ahora en tu script simplemente lo importas.
