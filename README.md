@@ -1,9 +1,9 @@
 <p align="center">
     <a href="setup.py">
         <img src="https://img.shields.io/badge/version-1.1-informational" /></a>
-    <a href="hhttps://github.com/roylanmartinez/Numlet">
+    <a href="#top">
         <img src="https://img.shields.io/badge/language-es-informational" /></a>
-    <a href="hhttps://github.com/roylanmartinez/Numlet">
+    <a href="https://github.com/roylanmartinez/Numlet">
         <img src="https://img.shields.io/badge/status-developed-brightgreen" /></a>
     <a href="LICENSE">
         <img src="https://img.shields.io/badge/license-MIT-brightgreen" /></a>
