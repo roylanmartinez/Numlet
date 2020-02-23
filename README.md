@@ -1,17 +1,16 @@
-<p align="center">
-    <a href="LICENSE">
-        <img src="https://img.shields.io/badge/license-MIT-brightgreen" /></a>
-    <a href="setup.py">
-        <img src="https://img.shields.io/badge/version-1.1.2-informational" /></a>
-    <a href="https://github.com/roylanmartinez/Numlet/commits/master">
-        <img src="https://img.shields.io/github/commit-activity/y/roylanmartinez/Numlet" /></a>
-    <a href="https://github.com/roylanmartinez/Numlet/network/members">
-        <img src="https://img.shields.io/github/forks/roylanmartinez/Numlet?label=Fork&style=social" /></a>
-    <a href="https://github.com/roylanmartinez/Numlet/stargazers">
-        <img src="https://img.shields.io/github/stars/roylanmartinez/Numlet?style=social" /></a>
-    <a href="https://github.com/roylanmartinez?tab=followers">
-        <img src="https://img.shields.io/github/followers/roylanmartinez?label=Follow&style=social" /></a>
-</p>
+
+<a href="LICENSE">
+    <img src="https://img.shields.io/badge/license-MIT-brightgreen" /></a>
+<a href="setup.py">
+    <img src="https://img.shields.io/badge/version-1.1.2-informational" /></a>
+<a href="https://github.com/roylanmartinez/Numlet/commits/master">
+    <img src="https://img.shields.io/github/commit-activity/m/roylanmartinez/Numlet" /></a>
+<a href="https://github.com/roylanmartinez/Numlet/network/members">
+    <img src="https://img.shields.io/github/forks/roylanmartinez/Numlet?label=Fork&style=social" /></a>
+<a href="https://github.com/roylanmartinez/Numlet/stargazers">
+    <img src="https://img.shields.io/github/stars/roylanmartinez/Numlet?style=social" /></a>
+<a href="https://github.com/roylanmartinez?tab=followers">
+    <img src="https://img.shields.io/github/followers/roylanmartinez?label=Follow&style=social" /></a>
 
 # Numlet
 
