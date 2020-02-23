@@ -231,20 +231,18 @@ class Numero:
         [' Un Trillón', ' Trillones'], [' Un billón', ' Billones'], [' Un Millón', ' Millones']
     ]
 
-    def __init__(self, x: int):
+    def __init__(self, entero: int):
+        cambio = len(str(entero)) % 6 == 0
+        self.entero = str(entero) if cambio else ''.join([int(6 - int(len(str(entero)) % 6)) * '0', str(entero)])
 
-        cambio = len(str(x)) % 6 == 0
-        self.x = str(x) if cambio else ''.join([int(6 - int(len(str(x)) % 6)) * '0', str(x)])
-        self.a_letras = self.a_letras()
-
+    @property
     def a_letras(self):
-
-        if len(self.x) < 7:
-            cero = self.x == '000000'
-            return ' Cero' if cero else n6(self.x)[1:]
+        if len(self.entero) < 7:
+            cero = self.entero == '000000'
+            return ' Cero' if cero else n6(self.entero)[1:]
         else:
-            grupos = [(self.x[i:i + 6]) for i in range(0, len(self.x), 6)]
-            lrg = len(self.x) // 6 - 1
+            grupos = [(self.entero[i:i + 6]) for i in range(0, len(self.entero), 6)]
+            lrg = len(self.entero) // 6 - 1
             final = ''
             for indice, elemento in enumerate(self.base[-lrg:]):
                 final += ninf(grupos[indice], v1=elemento[0], v2=elemento[1])
