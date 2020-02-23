@@ -2,7 +2,7 @@
     <a href="LICENSE">
         <img src="https://img.shields.io/badge/license-MIT-brightgreen" /></a>
     <a href="setup.py">
-        <img src="https://img.shields.io/badge/version-1.1-informational" /></a>
+        <img src="https://img.shields.io/badge/version-1.1.2-informational" /></a>
     <a href="https://github.com/roylanmartinez/Numlet/commits/master">
         <img src="https://img.shields.io/github/commit-activity/y/roylanmartinez/Numlet" /></a>
     <a href="https://github.com/roylanmartinez/Numlet/network/members">
