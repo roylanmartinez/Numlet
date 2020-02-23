@@ -1,7 +1,7 @@
 <p align="center">
     <a href="setup.py">
         <img src="https://img.shields.io/badge/version-1.1-informational" /></a>
-    <a href="#top">
+    <a href="https://github.com/roylanmartinez/Numlet">
         <img src="https://img.shields.io/badge/language-es-informational" /></a>
     <a href="https://github.com/roylanmartinez/Numlet">
         <img src="https://img.shields.io/badge/status-developed-brightgreen" /></a>
@@ -11,7 +11,7 @@
         <img src="https://img.shields.io/github/forks/roylanmartinez/Numlet?label=Fork&style=social" /></a>
     <a href="https://github.com/roylanmartinez/Numlet/stargazers">
         <img src="https://img.shields.io/github/stars/roylanmartinez/Numlet?style=social" /></a>
-    <a href="https://github.com/roylanmartinez/Numlet/stargazers">
+    <a href="https://github.com/roylanmartinez?tab=followers">
         <img src="https://img.shields.io/github/followers/roylanmartinez?label=Follow&style=social" /></a>
 </p>
 
