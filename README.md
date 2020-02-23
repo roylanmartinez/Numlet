@@ -1,9 +1,9 @@
 <p align="center">
     <a href="setup.py">
         <img src="https://img.shields.io/badge/version-1.1-informational" /></a>
-    <a href="https://github.com/roylanmartinez/Numlet">
+    <a href="# Numlet">
         <img src="https://img.shields.io/badge/language-es-informational" /></a>
-    <a href="https://github.com/roylanmartinez/Numlet">
+    <a href="# Numlet">
         <img src="https://img.shields.io/badge/status-developed-brightgreen" /></a>
     <a href="LICENSE">
         <img src="https://img.shields.io/badge/license-MIT-brightgreen" /></a>
@@ -17,7 +17,7 @@
 
 # Numlet
 
-Numlet es una pequeña librería basada en Python capaz de convertir más de 10^600 diferentes números naturales y cero a letras.
+Numlet es una pequeña librería basada en Python capaz de convertir más de ún centillón de números naturales diferentes y cero a letras.
 
 ## Instrucciones de instalación 
 ###### Pero antes,
