@@ -1,5 +1,5 @@
 """
-   La librería de numlet.py te permite convertir más de 10^600 números naturales distintos, incluido el cero, a letras.
+   La librería de nlt.py te permite convertir más de 10^600 números naturales distintos, incluido el cero, a letras.
    La clase 'Numeros' toma como parámetro un integer y mediante el método 'a_letras' retorna un string.
    Por lo tanto, a la hora de retornar un resultado se le pueden asociar métodos subordinados a objetos de carácter str,
    por ejemplo .lower() y además también se puede ingresar un input asociado a métodos de carácter int, por ejemplo,

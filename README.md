@@ -28,9 +28,8 @@ Numlet es una pequeña librería basada en Python capaz de convertir más de 10^
 ## Utilización 
 Ahora en tu script simplemente la importas.
 ```python
-from numlet import numlet as nl
+from nlt import numlet as nl
 ```
-###### Si no sabes como importar un módulo haz click [aquí](https://docs.python.org/3/tutorial/modules.html).
 
 ##### Ejemplo 1:
 ```python
