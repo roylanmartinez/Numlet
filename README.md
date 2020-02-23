@@ -1,3 +1,20 @@
+<p align="center">
+    <a href="hhttps://github.com/roylanmartinez/Numlet">
+        <img src="https://img.shields.io/badge/language-es-brightgreen" /></a>
+    <a href="#backers" alt="Backers on Open Collective">
+        <img src="https://img.shields.io/badge/status-developed-brightgreen" /></a>
+    <a href="hhttps://github.com/roylanmartinez/Numlet">
+        <img src="https://img.shields.io/badge/version-1.1-informational" /></a>
+    <a href="LICENSE">
+        <img src="https://img.shields.io/badge/license-MIT-brightgreen" /></a>
+    <a href="FORK">
+        <img src="https://img.shields.io/github/forks/roylanmartinez/Numlet?label=Fork&style=social" /></a>
+    <a href="https://github.com/roylanmartinez/Numlet/stargazers">
+        <img src="https://img.shields.io/github/stars/roylanmartinez/Numlet?style=social" /></a>
+    <a href="https://github.com/roylanmartinez/Numlet/stargazers">
+        <img src="https://img.shields.io/github/followers/roylanmartinez?label=Follow&style=social" /></a>
+</p>
+
 # Numlet
 
 Numlet es una pequeña librería basada en Python capaz de convertir más de 10^600 diferentes números naturales y cero a letras.
