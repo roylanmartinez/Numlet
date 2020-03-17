@@ -300,7 +300,7 @@ class Numero:
                 return self.lector(str(int(float(self.num))))
 
         except ValueError:
-            raise ValueError('argumendo pasado a Numlet no es entero ni decimal')
+            raise ValueError('argumendo pasado a Numlet no es entero ni tampoco decimal')
 
 
 def main():
