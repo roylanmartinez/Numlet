@@ -1,2 +1,3 @@
-# Solo el dado por pycharm
+# The repository does not track 'settings.py', '.idea' nor 'DataBase' data.
+
 *.idea
