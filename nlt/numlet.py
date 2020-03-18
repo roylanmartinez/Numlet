@@ -292,17 +292,15 @@ class Numero:
                 ][len(nozerosr) - 1]
 
                 rplural = r[:-1] if limpio == '1' else r
-                return ' Con ' + self.lector(limpio, True) + ' ' + rplural
+                return ''.join([' Con ', self.lector(limpio, True), ' ', rplural])
 
             else:
-                # arreglador
                 posicion = len(nozerosr) // 6
                 col = len(nozerosr) - (posicion * 6)
                 rplural = 'ésima' if limpio == '1' else 'ésimas'
                 inicio = ['', 'Diez', 'Cien', 'Mil', 'Diezmil', 'Cienmil'][col]
-                medio = self.base[-posicion][1].rstrip('es').strip()
-                final = rplural
-                return ' Con ' + self.lector(limpio) + ' ' + inicio + medio + final
+                medio = ''.join([inicio, self.base[-posicion][1].rstrip('es').strip(), rplural])
+                return ''.join([' Con ', self.lector(limpio, True), ' ', medio.capitalize()])
 
     @property
     def a_letras(self):
@@ -323,7 +321,7 @@ class Numero:
             raise ValueError('argumento pasado a Numlet no es entero ni tampoco decimal')
 
 
-x = '23498572389047523089457230948572304895739048573092857238975.0000000000000000003'
+x = '121121.121'
 print(x)
 print(Numero(x).a_letras)
 
