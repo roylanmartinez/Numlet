@@ -14,144 +14,144 @@
 
 
 # Bases para intermedios: ni(), nni() y nnni()
-def ni(x: str, bef=True, dec=False) -> str:
-    if x == '1':
+def ni(valor: str, bef=True, dec=False) -> str:
+    if valor == '1':
         if dec:
             return ' Una' if bef else ' Un'
         else:
             return ' Uno' if bef else ' Un'
-    elif x == '2':
+    elif valor == '2':
         return ' Dos'
-    elif x == '3':
+    elif valor == '3':
         return ' Tres'
-    elif x == '4':
+    elif valor == '4':
         return ' Cuatro'
-    elif x == '5':
+    elif valor == '5':
         return ' Cinco'
-    elif x == '6':
+    elif valor == '6':
         return ' Seis'
-    elif x == '7':
+    elif valor == '7':
         return ' Siete'
-    elif x == '8':
+    elif valor == '8':
         return ' Ocho'
-    elif x == '9':
+    elif valor == '9':
         return ' Nueve'
     else:
         # elif x == '0':
         return ''
 
 
-def nni(x: str, bef=True, dec=False) -> str:
-    if x[0] == '1':
-        if x == '10':
+def nni(valor: str, bef=True, dec=False) -> str:
+    if valor[0] == '1':
+        if valor == '10':
             return ' Diez'
-        elif x == '11':
+        elif valor == '11':
             return ' Once'
-        elif x == '12':
+        elif valor == '12':
             return ' Doce'
-        elif x == '13':
+        elif valor == '13':
             return ' Trece'
-        elif x == '14':
+        elif valor == '14':
             return ' Catorce'
-        elif x == '15':
+        elif valor == '15':
             return ' Quince'
-        elif x == '16':
+        elif valor == '16':
             return ' Dieciséis'
-        elif x == '17':
+        elif valor == '17':
             return ' Diecisiete'
-        elif x == '18':
+        elif valor == '18':
             return ' Dieciocho'
         else:
             # elif x == '18':
             return ' Diecinueve'
-    elif x[0] == '2':
-        if x == '20':
+    elif valor[0] == '2':
+        if valor == '20':
             return ' Veinte'
-        elif x == '21':
+        elif valor == '21':
             return ' Veintiuno' if bef else ' Veintiún'
-        elif x == '22':
+        elif valor == '22':
             return ' Veintidós'
-        elif x == '23':
+        elif valor == '23':
             return ' Veintitrés'
-        elif x == '24':
+        elif valor == '24':
             return ' Veinticuatro'
-        elif x == '25':
+        elif valor == '25':
             return ' Veinticinco'
-        elif x == '26':
+        elif valor == '26':
             return ' Veinteséis'
-        elif x == '27':
+        elif valor == '27':
             return ' Veintisiete'
-        elif x == '28':
+        elif valor == '28':
             return ' Veintiocho'
         else:
             # elif x == '29':
             return ' Veintinueve'
-    elif x[0] == '3':
-        return ''.join([' Treinta', '' if x[1] == '0' else ''.join([' y', ni(x[1], bef, dec)])])
-    elif x[0] == '4':
-        return ''.join([' Cuarenta', '' if x[1] == '0' else ''.join([' y', ni(x[1], bef, dec)])])
-    elif x[0] == '5':
-        return ''.join([' Cincuenta', '' if x[1] == '0' else ''.join([' y', ni(x[1], bef, dec)])])
-    elif x[0] == '6':
-        return ''.join([' Sesenta', '' if x[1] == '0' else ''.join([' y', ni(x[1], bef, dec)])])
-    elif x[0] == '7':
-        return ''.join([' Setenta', '' if x[1] == '0' else ''.join([' y', ni(x[1], bef, dec)])])
-    elif x[0] == '8':
-        return ''.join([' Ochenta', '' if x[1] == '0' else ''.join([' y', ni(x[1], bef, dec)])])
-    elif x[0] == '9':
-        return ''.join([' Noventa', '' if x[1] == '0' else ''.join([' y', ni(x[1], bef, dec)])])
+    elif valor[0] == '3':
+        return ''.join([' Treinta', '' if valor[1] == '0' else ''.join([' y', ni(valor[1], bef, dec)])])
+    elif valor[0] == '4':
+        return ''.join([' Cuarenta', '' if valor[1] == '0' else ''.join([' y', ni(valor[1], bef, dec)])])
+    elif valor[0] == '5':
+        return ''.join([' Cincuenta', '' if valor[1] == '0' else ''.join([' y', ni(valor[1], bef, dec)])])
+    elif valor[0] == '6':
+        return ''.join([' Sesenta', '' if valor[1] == '0' else ''.join([' y', ni(valor[1], bef, dec)])])
+    elif valor[0] == '7':
+        return ''.join([' Setenta', '' if valor[1] == '0' else ''.join([' y', ni(valor[1], bef, dec)])])
+    elif valor[0] == '8':
+        return ''.join([' Ochenta', '' if valor[1] == '0' else ''.join([' y', ni(valor[1], bef, dec)])])
+    elif valor[0] == '9':
+        return ''.join([' Noventa', '' if valor[1] == '0' else ''.join([' y', ni(valor[1], bef, dec)])])
     else:
         #  elif x[0] == '0':
-        return ni(x[1], bef, dec)
+        return ni(valor[1], bef, dec)
 
 
-def nnni(x: str, bef=True, dec=False) -> str:
-    if x[0] == '1':
-        if x[1:] == '00':
+def nnni(valor: str, bef=True, dec=False) -> str:
+    if valor[0] == '1':
+        if valor[1:] == '00':
             return ' Cien'
         else:
-            return ''.join([' Ciento', nni(x[1:3], bef, dec)])
-    elif x[0] == '2':
-        return ''.join([' Doscientos', '' if x[1:3] == '00' else nni(x[1:3], bef, dec)])
-    elif x[0] == '3':
-        return ''.join([' Trescientos', '' if x[1:3] == '00' else nni(x[1:3], bef, dec)])
-    elif x[0] == '4':
-        return ''.join([' Cuatrocientos', '' if x[1:3] == '00' else nni(x[1:3], bef, dec)])
-    elif x[0] == '5':
-        return ''.join([' Quinientos', '' if x[1:3] == '00' else nni(x[1:3], bef, dec)])
-    elif x[0] == '6':
-        return ''.join([' Seiscientos', '' if x[1:3] == '00' else nni(x[1:3], bef, dec)])
-    elif x[0] == '7':
-        return ''.join([' Setecientos', '' if x[1:3] == '00' else nni(x[1:3], bef, dec)])
-    elif x[0] == '8':
-        return ''.join([' Ochocientos', '' if x[1:3] == '00' else nni(x[1:3], bef, dec)])
-    elif x[0] == '9':
-        return ''.join([' Novecientos', '' if x[1:3] == '00' else nni(x[1:3], bef, dec)])
+            return ''.join([' Ciento', nni(valor[1:3], bef, dec)])
+    elif valor[0] == '2':
+        return ''.join([' Doscientos', '' if valor[1:3] == '00' else nni(valor[1:3], bef, dec)])
+    elif valor[0] == '3':
+        return ''.join([' Trescientos', '' if valor[1:3] == '00' else nni(valor[1:3], bef, dec)])
+    elif valor[0] == '4':
+        return ''.join([' Cuatrocientos', '' if valor[1:3] == '00' else nni(valor[1:3], bef, dec)])
+    elif valor[0] == '5':
+        return ''.join([' Quinientos', '' if valor[1:3] == '00' else nni(valor[1:3], bef, dec)])
+    elif valor[0] == '6':
+        return ''.join([' Seiscientos', '' if valor[1:3] == '00' else nni(valor[1:3], bef, dec)])
+    elif valor[0] == '7':
+        return ''.join([' Setecientos', '' if valor[1:3] == '00' else nni(valor[1:3], bef, dec)])
+    elif valor[0] == '8':
+        return ''.join([' Ochocientos', '' if valor[1:3] == '00' else nni(valor[1:3], bef, dec)])
+    elif valor[0] == '9':
+        return ''.join([' Novecientos', '' if valor[1:3] == '00' else nni(valor[1:3], bef, dec)])
     else:
         # elif x[0] == '0':
-        return nni(x[1:], bef, dec)
+        return nni(valor[1:], bef, dec)
 
 
 # Compactador de menores de un millon: n6()
-def n6(x: str, bef=True, dec=False) -> str:
-    if x == '000000':
+def n6(valor: str, bef=True, dec=False) -> str:
+    if valor == '000000':
         return ''
-    elif x[:3] == '001':
-        return ''.join([' Mil', nnni(x[3:], bef, dec)])
-    elif x[:3] == '000':
-        return nnni(x[3:], bef, dec)
+    elif valor[:3] == '001':
+        return ''.join([' Mil', nnni(valor[3:], bef, dec)])
+    elif valor[:3] == '000':
+        return nnni(valor[3:], bef, dec)
     else:
-        return ''.join([nnni(x[:3], bef=False), ' Mil', nnni(x[3:], bef, dec)])
+        return ''.join([nnni(valor[:3], bef=False), ' Mil', nnni(valor[3:], bef, dec)])
 
 
 # Compactador de intermedios y tipo de cantidad en singular y plural (v1 y v2): ninf()
-def ninf(x: str, v1=' Un Millón', v2=' Millones') -> str:
-    if x == '000000':
+def ninf(valor: str, v1=' Un Millón', v2=' Millones') -> str:
+    if valor == '000000':
         return ''
-    elif x == '000001':
+    elif valor == '000001':
         return v1
     else:
-        return ''.join([n6(x, bef=False), v2])
+        return ''.join([n6(valor, bef=False, dec=False), v2])
 
 
 # traductor de notación científica.
@@ -200,6 +200,7 @@ class Numero:
        --- MIL DOSCIENTOS DIEZ
 
     """
+
     base = [
         [' Un Centillón', ' Centillones'],
         [' Un Novenonigintillón', ' Novenonigintillones'], [' Un Octononigintillón', ' Octononigintillones'],
@@ -222,14 +223,18 @@ class Numero:
         [' Un Quinsextintillón', ' Quinsextigintillones'], [' Un Cuatorsextigintillón', ' Cuatorsextigintillones'],
         [' Un Tresextigintillón', ' Tresextigintillones'], [' Un Duosextigintillón', ' Duosextigintillones'],
         [' Un Unsextigintillón', ' Unsextigintillones'], [' Un Sextigintillón', ' Sextigintillones'],
-        [' Un Novenquintigintillón', ' Novenquintigintillones'], [' Un Octoquintigintillón', ' Octoquintigintillones'],
+        [' Un Novenquintigintillón', ' Novenquintigintillones'],
+        [' Un Octoquintigintillón', ' Octoquintigintillones'],
         [' Un Septenquintigintillón', ' Septenquintigintillones'], [' Un Sexvigintillón', ' Sexvigintillones'],
-        [' Un Quinquintintillón', ' Quinquintigintillones'], [' Un Cuatorquintigintillón', ' Cuatorquintigintillones'],
+        [' Un Quinquintintillón', ' Quinquintigintillones'],
+        [' Un Cuatorquintigintillón', ' Cuatorquintigintillones'],
         [' Un Trequintigintillón', ' Trequintigintillones'], [' Un Duoquintigintillón', ' Duoquintigintillones'],
         [' Un Unquintigintillón', ' Unquintigintillones'], [' Un Quintigintillón', ' Quintigintillones'],
-        [' Un Novencuatrigintillón', ' Novencuatrigintillones'], [' Un Octocuatrigintillón', ' Octocuatrigintillones'],
+        [' Un Novencuatrigintillón', ' Novencuatrigintillones'],
+        [' Un Octocuatrigintillón', ' Octocuatrigintillones'],
         [' Un Septencuatrigintillón', ' Septencuatrigintillones'], [' Un Sexvigintillón', ' Sexvigintillones'],
-        [' Un Quincuatrintillón', ' Quincuatrigintillones'], [' Un Cuatorcuatrigintillón', ' Cuatorcuatrigintillones'],
+        [' Un Quincuatrintillón', ' Quincuatrigintillones'],
+        [' Un Cuatorcuatrigintillón', ' Cuatorcuatrigintillones'],
         [' Un Trecuatrigintillón', ' Trecuatrigintillones'], [' Un Duocuatrigintillón', ' Duocuatrigintillones'],
         [' Un Uncuatrigintillón', ' Uncuatrigintillones'], [' Un Cuatrigintillón', ' Cuatrigintillones'],
         [' Un Noventrigintillón', ' Noventrigintillones'], [' Un Octotrigintillón', ' Octotrigintillones'],
@@ -251,9 +256,6 @@ class Numero:
         [' Un Sextillón', ' Sextillones'], [' Un Quintillón', ' Quintillones'], [' Un Cuatrillón', ' Cuatrillones'],
         [' Un Trillón', ' Trillones'], [' Un billón', ' Billones'], [' Un Millón', ' Millones']
     ]
-
-    basedecimals = {
-    }
 
     def __init__(self, numero):
         self.num = moldecimal(str(numero).strip())
@@ -278,17 +280,35 @@ class Numero:
     def lectordcml(self, x):
         if x == '0':
             return ''
+
         else:
-            nozerosl = x.lstrip('0')
-            limpio = nozerosl.rstrip('0')
-            zeros = len(x) - len(nozerosl)
-            # lrg = zeros + limpio
-            return ''.join([' Con ', self.lector(limpio, True)])
+            # limpiador
+            nozerosr = x.rstrip('0')
+            limpio = nozerosr.lstrip('0')
+
+            if len(nozerosr) < 6:
+                r = [
+                    'Désimas', 'Centésimas', 'Milésimas', 'Diezmilésimas', 'Cienmilésimas',
+                ][len(nozerosr) - 1]
+
+                rplural = r[:-1] if limpio == '1' else r
+                return ' Con ' + self.lector(limpio, True) + ' ' + rplural
+
+            else:
+                # arreglador
+                posicion = len(nozerosr) // 6
+                col = len(nozerosr) - (posicion * 6)
+                rplural = 'ésima' if limpio == '1' else 'ésimas'
+                inicio = ['', 'Diez', 'Cien', 'Mil', 'Diezmil', 'Cienmil'][col]
+                medio = self.base[-posicion][1].rstrip('es').strip()
+                final = rplural
+                return ' Con ' + self.lector(limpio) + ' ' + inicio + medio + final
 
     @property
     def a_letras(self):
         try:
-            float(self.num)     # Llama except si valor no es ni int ni float
+            # Llama except si valor no es ni int ni float
+            float(self.num)
 
             if '.' in self.num:
                 # float
@@ -300,13 +320,11 @@ class Numero:
                 return self.lector(str(int(float(self.num))))
 
         except ValueError:
-            raise ValueError('argumendo pasado a Numlet no es entero ni tampoco decimal')
+            raise ValueError('argumento pasado a Numlet no es entero ni tampoco decimal')
 
 
-def main():
-    print(Numero(0.01997 + 1 + 100_000).a_letras.lower())
+x = '23498572389047523089457230948572304895739048573092857238975.0000000000000000003'
+print(x)
+print(Numero(x).a_letras)
 
-
-if __name__ == '__main__':
-    main()
 
