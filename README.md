@@ -65,8 +65,8 @@ print(resultado)
 > CERO CON UNA DIEZTRILLONÉSIMA
 ##### Ejemplo 4:
 ```python
-n = -1000.123
-resultado = nl.Numero(-1*abs(1 + 1000 + 1.12)).a_letras
+n = -1*abs(1 + 1000 + 1.12)
+resultado = nl.Numero(n).a_letras
 print(resultado)
 ```
  > Menos Mil Dos Con Doce Centésimas
@@ -76,5 +76,5 @@ Las pull requests son bienvenidas, así como comentarios acerca de mejoras o bug
 ## Licencia
 [MIT](LICENSE)
 
-   ### ¡Espero que les guste! 
-   Repositorio: https://github.com/roylanmartinez/Numlet
+### ¡Espero que les guste! 
+Repositorio: https://github.com/roylanmartinez/Numlet
