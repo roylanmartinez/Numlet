@@ -2,17 +2,19 @@
     <a href="LICENSE">
         <img src="https://img.shields.io/badge/license-MIT-brightgreen" /></a>
     <a href="setup.py">
-        <img src="https://img.shields.io/badge/version-1.1.2-informational" /></a>
+        <img src="https://img.shields.io/badge/version-2.0-informational" /></a>
 </p>
 
 # Numlet
 
-Numlet es una pequeña librería basada en Python capaz de convertir más de ún centillón de números naturales diferentes y cero a letras.
+Numlet es una pequeña librería basada en Python capaz de convertir más de un duocentillón de números diferentes
+a letras. 
 
 ## Instrucciones de instalación 
 ###### Pero antes,
  - Asegurate de tener la última versión de pip instalada.
- - Nota que la primera alternativa se lleva a cabo desde un archivo normal de Python y la segunda desde un Jupyter Notebook.
+ - Nota que la primera alternativa se lleva a cabo desde un archivo normal de Python y la 
+ segunda desde un Jupyter Notebook.
 #### Primera alternativa.
 ###### Esta alternativa se ha probado desde PyCharm.
 1. Abre el script donde quieres importar Numlet.
@@ -20,7 +22,8 @@ Numlet es una pequeña librería basada en Python capaz de convertir más de ún
 ```
     >  pip install git+https://github.com/roylanmartinez/Numlet.git
 ```
-###### Si trabajas desde otro IDE y no sabes como instalar un package haz clíck [aquí](https://packaging.python.org/tutorials/installing-packages/)
+###### Si trabajas desde otro IDE y no sabes como instalar un package haz clíck
+ [aquí](https://packaging.python.org/tutorials/installing-packages/)
 
 3. Listo. Ve a la sección [Utilización](#utilización). 
 
@@ -40,25 +43,33 @@ from nlt import numlet as nl
 
 ##### Ejemplo 1:
 ```python
-n = 1210
+n = 1
 resultado = nl.Numero(n).a_letras
 print(resultado)
 ```
-> Mil Doscientos Diez
+> Uno
 ##### Ejemplo 2:
 ```python
-n = 1210
+n = -1000.123
 resultado = nl.Numero(n).a_letras.lower()
 print(resultado)
 ```
- > mil doscientos diez
-##### Ejemplo 3:
+ > menos mil con ciento veintitrés milésimas
+##### Ejemplo 3: 
+###### *Recuerda poner los números décimales muy pequeños en comillas, más información [aquí](https://docs.python.org/3/tutorial/floatingpoint.html)*
 ```python
-n = abs(-121*10)
+n = '0.0000000000000000001'
 resultado = nl.Numero(n).a_letras.upper()
 print(resultado)
 ```
-> MIL DOSCIENTOS DIEZ
+> CERO CON UNA DIEZTRILLONÉSIMA
+##### Ejemplo 4:
+```python
+n = -1000.123
+resultado = nl.Numero(-1*abs(1 + 1000 + 1.12)).a_letras
+print(resultado)
+```
+ > Menos Mil Dos Con Doce Centésimas
 ## Contribución
 Las pull requests son bienvenidas, así como comentarios acerca de mejoras o bugs. 
 
