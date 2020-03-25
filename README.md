@@ -1,14 +1,13 @@
-<p align="center">
+<div style="padding-top: 15px">
     <a href="LICENSE">
         <img src="https://img.shields.io/badge/license-MIT-brightgreen" /></a>
     <a href="setup.py">
         <img src="https://img.shields.io/badge/version-2.0-informational" /></a>
-</p>
+</div>
 
 # Numlet
 
-Numlet es una pequeña librería basada en Python capaz de convertir más de un duocentillón de números diferentes
-a letras. 
+Numlet es una pequeña librería basada en Python capaz de convertir más de dos duocentillones de números diferentes a letras. 
 
 ## Instrucciones de instalación 
 ###### Pero antes,
