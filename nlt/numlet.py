@@ -1,5 +1,5 @@
 """
-   La librería de Numlet te permite convertir más de 10^2400 números distintos a letras.
+   La librería de Numlet te permite convertir más de dos duocentillones de números distintos a letras.
    La clase 'Numeros' toma como parámetro un valor (tipo int o float) y retorna un string mediante el método 'a_letras',
    además on el fin de trabajar números decimales muy largos Numlet también acepta strings y números en notación
    científica.
@@ -42,63 +42,107 @@ class Numero:
 
         """
 
+    # Instanciador y eliminador de espacios: __init__()
     def __init__(self, numero):
         self.num = self.moldecimal(str(numero).strip())
 
     base = [
         [' Un Centillón', ' Centillones'],
-        [' Un Novenonigintillón', ' Novenonigintillones'], [' Un Octononigintillón', ' Octononigintillones'],
-        [' Un Septenonigintillón', ' Septenonigintillones'], [' Un Sexvigintillón', ' Sexvigintillones'],
-        [' Un Quinonintillón', ' Quinonigintillones'], [' Un Cuatornonigintillón', ' Cuatornonigintillones'],
-        [' Un Trenonigintillón', ' Trenonigintillones'], [' Un Duononigintillón', ' Duononigintillones'],
-        [' Un Unonigintillón', ' Unonigintillones'], [' Un Nonigintillón', ' Nonigintillones'],
-        [' Un Novenoctigintillón', ' Novenoctigintillones'], [' Un Octooctigintillón', ' Octooctigintillones'],
-        [' Un Septenoctigintillón', ' Septenoctigintillones'], [' Un Sexvigintillón', ' Sexvigintillones'],
-        [' Un Quinoctintillón', ' Quinoctigintillones'], [' Un Cuatoroctigintillón', ' Cuatoroctigintillones'],
-        [' Un Treoctigintillón', ' Treoctigintillones'], [' Un Duooctigintillón', ' Duooctigintillones'],
-        [' Un Unoctigintillón', ' Unoctigintillones'], [' Un Octigintillón', ' Octigintillones'],
-        [' Un Novenseptigintillón', ' Novenseptigintillones'], [' Un Octoseptigintillón', ' Octoseptigintillones'],
-        [' Un Septenseptigintillón', ' Septenseptigintillones'], [' Un Sexvigintillón', ' Sexvigintillones'],
-        [' Un Quinseptintillón', ' Quinseptigintillones'], [' Un Cuatorseptigintillón', ' Cuatorseptigintillones'],
-        [' Un Treseptigintillón', ' Treseptigintillones'], [' Un Duoseptigintillón', ' Duoseptigintillones'],
-        [' Un Unseptigintillón', ' Unseptigintillones'], [' Un Septigintillón', ' Septigintillones'],
-        [' Un Novensextigintillón', ' Novensextigintillones'], [' Un Octosextigintillón', ' Octosextigintillones'],
-        [' Un Septensextigintillón', ' Septensextigintillones'], [' Un Sexvigintillón', ' Sexvigintillones'],
-        [' Un Quinsextintillón', ' Quinsextigintillones'], [' Un Cuatorsextigintillón', ' Cuatorsextigintillones'],
-        [' Un Tresextigintillón', ' Tresextigintillones'], [' Un Duosextigintillón', ' Duosextigintillones'],
-        [' Un Unsextigintillón', ' Unsextigintillones'], [' Un Sextigintillón', ' Sextigintillones'],
+        [' Un Novenonigintillón', ' Novenonigintillones'], [
+            ' Un Octononigintillón', ' Octononigintillones'],
+        [' Un Septenonigintillón', ' Septenonigintillones'], [
+            ' Un Sexvigintillón', ' Sexvigintillones'],
+        [' Un Quinonintillón', ' Quinonigintillones'], [
+            ' Un Cuatornonigintillón', ' Cuatornonigintillones'],
+        [' Un Trenonigintillón', ' Trenonigintillones'], [
+            ' Un Duononigintillón', ' Duononigintillones'],
+        [' Un Unonigintillón', ' Unonigintillones'], [
+            ' Un Nonigintillón', ' Nonigintillones'],
+        [' Un Novenoctigintillón', ' Novenoctigintillones'], [
+            ' Un Octooctigintillón', ' Octooctigintillones'],
+        [' Un Septenoctigintillón', ' Septenoctigintillones'], [
+            ' Un Sexvigintillón', ' Sexvigintillones'],
+        [' Un Quinoctintillón', ' Quinoctigintillones'], [
+            ' Un Cuatoroctigintillón', ' Cuatoroctigintillones'],
+        [' Un Treoctigintillón', ' Treoctigintillones'], [
+            ' Un Duooctigintillón', ' Duooctigintillones'],
+        [' Un Unoctigintillón', ' Unoctigintillones'], [
+            ' Un Octigintillón', ' Octigintillones'],
+        [' Un Novenseptigintillón', ' Novenseptigintillones'], [
+            ' Un Octoseptigintillón', ' Octoseptigintillones'],
+        [' Un Septenseptigintillón', ' Septenseptigintillones'], [
+            ' Un Sexvigintillón', ' Sexvigintillones'],
+        [' Un Quinseptintillón', ' Quinseptigintillones'], [
+            ' Un Cuatorseptigintillón', ' Cuatorseptigintillones'],
+        [' Un Treseptigintillón', ' Treseptigintillones'], [
+            ' Un Duoseptigintillón', ' Duoseptigintillones'],
+        [' Un Unseptigintillón', ' Unseptigintillones'], [
+            ' Un Septigintillón', ' Septigintillones'],
+        [' Un Novensextigintillón', ' Novensextigintillones'], [
+            ' Un Octosextigintillón', ' Octosextigintillones'],
+        [' Un Septensextigintillón', ' Septensextigintillones'], [
+            ' Un Sexvigintillón', ' Sexvigintillones'],
+        [' Un Quinsextintillón', ' Quinsextigintillones'], [
+            ' Un Cuatorsextigintillón', ' Cuatorsextigintillones'],
+        [' Un Tresextigintillón', ' Tresextigintillones'], [
+            ' Un Duosextigintillón', ' Duosextigintillones'],
+        [' Un Unsextigintillón', ' Unsextigintillones'], [
+            ' Un Sextigintillón', ' Sextigintillones'],
         [' Un Novenquintigintillón', ' Novenquintigintillones'],
         [' Un Octoquintigintillón', ' Octoquintigintillones'],
-        [' Un Septenquintigintillón', ' Septenquintigintillones'], [' Un Sexvigintillón', ' Sexvigintillones'],
+        [' Un Septenquintigintillón', ' Septenquintigintillones'], [
+            ' Un Sexvigintillón', ' Sexvigintillones'],
         [' Un Quinquintintillón', ' Quinquintigintillones'],
         [' Un Cuatorquintigintillón', ' Cuatorquintigintillones'],
-        [' Un Trequintigintillón', ' Trequintigintillones'], [' Un Duoquintigintillón', ' Duoquintigintillones'],
-        [' Un Unquintigintillón', ' Unquintigintillones'], [' Un Quintigintillón', ' Quintigintillones'],
+        [' Un Trequintigintillón', ' Trequintigintillones'], [
+            ' Un Duoquintigintillón', ' Duoquintigintillones'],
+        [' Un Unquintigintillón', ' Unquintigintillones'], [
+            ' Un Quintigintillón', ' Quintigintillones'],
         [' Un Novencuatrigintillón', ' Novencuatrigintillones'],
         [' Un Octocuatrigintillón', ' Octocuatrigintillones'],
-        [' Un Septencuatrigintillón', ' Septencuatrigintillones'], [' Un Sexvigintillón', ' Sexvigintillones'],
+        [' Un Septencuatrigintillón', ' Septencuatrigintillones'], [
+            ' Un Sexvigintillón', ' Sexvigintillones'],
         [' Un Quincuatrintillón', ' Quincuatrigintillones'],
         [' Un Cuatorcuatrigintillón', ' Cuatorcuatrigintillones'],
-        [' Un Trecuatrigintillón', ' Trecuatrigintillones'], [' Un Duocuatrigintillón', ' Duocuatrigintillones'],
-        [' Un Uncuatrigintillón', ' Uncuatrigintillones'], [' Un Cuatrigintillón', ' Cuatrigintillones'],
-        [' Un Noventrigintillón', ' Noventrigintillones'], [' Un Octotrigintillón', ' Octotrigintillones'],
-        [' Un Septentrigintillón', ' Septentrigintillones'], [' Un Sextrigintillón', ' Sextrigintillones'],
-        [' Un Quintrintillón', ' Quintrigintillones'], [' Un Cuatortrigintillón', ' Cuatortrigintillones'],
-        [' Un Tretrigintillón', ' Tretrigintillones'], [' Un Duotrigintillón', ' Duotrigintillones'],
-        [' Un Untrigintillón', ' Untrigintillones'], [' Un Trigintillón', ' Trigintillones'],
-        [' Un Novenvigintillón', ' Novenvigintillones'], [' Un Octovigintillón', ' Octovigintillones'],
-        [' Un Septenvigintillón', ' Septenvigintillones'], [' Un Sexvigintillón', ' Sexvigintillones'],
-        [' Un Quinvigintillón', ' Quinvigintillones'], [' Un Cuatorvigintillón', ' Cuatorvigintillones'],
-        [' Un Trevigintillón', ' Trevigintillones'], [' Un Duovigintillón', ' Duovigintillones'],
-        [' Un Unvigintillón', ' Unvigintillones'], [' Un Vigintillón', ' Vigintillones'],
-        [' Un Novendecillón', ' Novendecillones'], [' Un Octodecillón', ' Octodecillones'],
-        [' Un Septendecillón', ' Septendecillones'], [' Un Sexdecillón', ' Sexdecillones'],
-        [' Un Quindecillón', ' Quindecillones'], [' Un Cuatordecillón', ' Cuatordecillones'],
-        [' Un Tredecillón', ' Tredecillones'], [' Un Duodecillón', ' Duodecillones'],
+        [' Un Trecuatrigintillón', ' Trecuatrigintillones'], [
+            ' Un Duocuatrigintillón', ' Duocuatrigintillones'],
+        [' Un Uncuatrigintillón', ' Uncuatrigintillones'], [
+            ' Un Cuatrigintillón', ' Cuatrigintillones'],
+        [' Un Noventrigintillón', ' Noventrigintillones'], [
+            ' Un Octotrigintillón', ' Octotrigintillones'],
+        [' Un Septentrigintillón', ' Septentrigintillones'], [
+            ' Un Sextrigintillón', ' Sextrigintillones'],
+        [' Un Quintrintillón', ' Quintrigintillones'], [
+            ' Un Cuatortrigintillón', ' Cuatortrigintillones'],
+        [' Un Tretrigintillón', ' Tretrigintillones'], [
+            ' Un Duotrigintillón', ' Duotrigintillones'],
+        [' Un Untrigintillón', ' Untrigintillones'], [
+            ' Un Trigintillón', ' Trigintillones'],
+        [' Un Novenvigintillón', ' Novenvigintillones'], [
+            ' Un Octovigintillón', ' Octovigintillones'],
+        [' Un Septenvigintillón', ' Septenvigintillones'], [
+            ' Un Sexvigintillón', ' Sexvigintillones'],
+        [' Un Quinvigintillón', ' Quinvigintillones'], [
+            ' Un Cuatorvigintillón', ' Cuatorvigintillones'],
+        [' Un Trevigintillón', ' Trevigintillones'], [
+            ' Un Duovigintillón', ' Duovigintillones'],
+        [' Un Unvigintillón', ' Unvigintillones'], [
+            ' Un Vigintillón', ' Vigintillones'],
+        [' Un Novendecillón', ' Novendecillones'], [
+            ' Un Octodecillón', ' Octodecillones'],
+        [' Un Septendecillón', ' Septendecillones'], [
+            ' Un Sexdecillón', ' Sexdecillones'],
+        [' Un Quindecillón', ' Quindecillones'], [
+            ' Un Cuatordecillón', ' Cuatordecillones'],
+        [' Un Tredecillón', ' Tredecillones'], [
+            ' Un Duodecillón', ' Duodecillones'],
         [' Un Undecillón', ' Undecillones'], [' Un Decillón', ' Decillones'],
-        [' Un Nonillón', ' Nonillones'], [' Un Octillón', ' Octillones'], [' Un Septillón', ' Septillones'],
-        [' Un Sextillón', ' Sextillones'], [' Un Quintillón', ' Quintillones'], [' Un Cuatrillón', ' Cuatrillones'],
-        [' Un Trillón', ' Trillones'], [' Un billón', ' Billones'], [' Un Millón', ' Millones']
+        [' Un Nonillón', ' Nonillones'], [' Un Octillón',
+                                          ' Octillones'], [' Un Septillón', ' Septillones'],
+        [' Un Sextillón', ' Sextillones'], [' Un Quintillón',
+                                            ' Quintillones'], [' Un Cuatrillón', ' Cuatrillones'],
+        [' Un Trillón', ' Trillones'], [' Un billón',
+                                        ' Billones'], [' Un Millón', ' Millones']
     ]
 
     # Bases para intermedios y menores de diez: ni(), nni() y nnni()
@@ -137,7 +181,8 @@ class Numero:
             coef, exp, return_val = float(str_vals[0]), int(str_vals[1]), ''
             if int(exp) > 0:
                 return_val += str(coef).replace('.', '')
-                return_val += ''.join(['0' for _ in range(0, abs(exp - len(str(coef).split('.')[1])))])
+                return_val += ''.join(['0' for _ in range(0,
+                                                          abs(exp - len(str(coef).split('.')[1])))])
             elif int(exp) < 0:
                 return_val += '0.'
                 return_val += ''.join(['0' for _ in range(0, abs(exp) - 1)])
@@ -260,6 +305,7 @@ class Numero:
         else:
             return ''.join([cls.n6(valor, bef=False, dec=False), v2])
 
+    # Lector general para números enteros: lector()
     def lector(self, numero, dec=False):
         cambio = len(numero) % 6 == 0
         entero = numero if cambio else ''.join(
@@ -274,9 +320,11 @@ class Numero:
             lrg = len(entero) // 6 - 1
             grupos = [(entero[i:i + 6]) for i in range(0, len(entero), 6)]
             for indice, elemento in enumerate(self.base[-lrg:]):
-                final += self.ninf(grupos[indice], v1=elemento[0], v2=elemento[1])
+                final += self.ninf(grupos[indice],
+                                   v1=elemento[0], v2=elemento[1])
             return ''.join([final, self.n6(grupos[-1], True, dec)])[1:]
 
+    # Lector general para números decimales: lectordcml()
     def lectordcml(self, x):
         if x == '0':
             return ''
@@ -299,7 +347,8 @@ class Numero:
                 col = len(nozerosr) - (posicion * 6)
                 rplural = 'ésima' if limpio == '1' else 'ésimas'
                 inicio = ['', 'Diez', 'Cien', 'Mil', 'Diezmil', 'Cienmil'][col]
-                medio = ''.join([inicio, self.base[-posicion][1].rstrip('es').strip(), rplural])
+                medio = ''.join([inicio, self.base[-posicion]
+                                 [1].rstrip('es').strip(), rplural])
                 return ''.join([' Con ', self.lector(limpio, True), ' ', medio.capitalize()])
 
     @property
@@ -321,7 +370,8 @@ class Numero:
             else:
                 # int
                 menos = 'Menos ' if self.num[0] == '-' else ''
-                return ''.join([menos, self.lector(str(int(float(self.num))).lstrip('-'))])
+                return ''.join([menos, self.lector(str(int(self.num)).lstrip('-'))])
 
         except ValueError:
-            raise ValueError('argumento pasado a Numlet no es entero ni tampoco decimal')
+            raise ValueError(
+                'argumento pasado a Numlet no es entero ni tampoco decimal')
