@@ -19,19 +19,18 @@ Numlet es una pequeña librería basada en Python capaz de convertir más de dos
 1. Abre el script donde quieres importar Numlet.
 2. Ve a la terminal del IDE y ejecuta:
 ```
-    >  pip install git+https://github.com/roylanmartinez/Numlet.git
+    >  pip install numlet
 ```
-###### Si trabajas desde otro IDE y no sabes como instalar un package haz clíck
- [aquí](https://packaging.python.org/tutorials/installing-packages/)
+###### Si trabajas desde otro IDE y no sabes como instalar un package haz clíck [aquí](https://packaging.python.org/tutorials/installing-packages/)
 
 3. Listo. Ve a la sección [Utilización](#utilización). 
 
 #### Segunda alternativa
 ###### Esta alternativa se ha probado desde Jupyter Notebook.
 1. Abre el script donde quieras importar Numlet.
-2. En la primera celda ejecuta:
+2. En la primera celda de Jupyter Notebook ejecuta:
 ```
-    In []: ! pip install git+https://github.com/roylanmartinez/Numlet.git
+    ! pip install numlet
 ```
 3. Listo. Ve a la sección [Utilización](#utilización). 
 ## Utilización 
